@@ -2,11 +2,13 @@
  * @Author: liF
  * @Date: 2022-09-19 15:04:17
  * @LastEditors: liF
- * @LastEditTime: 2022-11-17 20:23:47
+ * @LastEditTime: 2022-11-21 18:48:45
  */
 import React, { useEffect } from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { registerMicroApps, start, initGlobalState } from 'qiankun';
-import { Button } from 'antd';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 import './App.less';
 
 const App = () => {
@@ -31,12 +33,15 @@ const App = () => {
   }, [])
 
   return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-
-      {/* qiankun微应用的容器，不可放入到Switch路由中，会在微应用卸载的时候，由于此元素已经不存在而报错 */}
-      <div id="ehContainer" />
-    </div>
+  <ConfigProvider locale={zhCN}>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/react" element={<div id="react"></div>} />
+        </Switch>
+      </div>
+    </Router>
+  </ConfigProvider>
   );
 };
 
