@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2022-11-30 11:11:42
+ * @LastEditTime: 2022-12-02 17:42:36
  * @LastEditors: liF
  * @Description:
  */
@@ -26,23 +26,7 @@ module.exports = {
 	},
 	webpack: {
 		alias: {
-			styles: resolve('src/styles'),
-			themes: resolve('src/themes'),
-			components: resolve('src/common/components'),
 			utils: resolve('src/common/utils'),
-			images: resolve('src/common/images'),
-			'react-ahax': resolve('src/common/react-ahax'),
-			action: resolve('src/common/utils/action.js'),
-			config: resolve('src/config.js'),
-			'@components': resolve('src/components'),
-			'ehome-dashboard': resolve('src/project/ehome-dashboard'),
-
-			// '../../../.start.json': resolve('src/.start.json'),
-			// functions: resolve('src/project/ehome-admin/admin/src/functions'),
-			// '@components': resolve('src/project/ehome-admin/admin/src/components'),
-			// 'ehome-dashboard': resolve('src/project/ehome-admin/admin/src/ehome-dashboard'),
-			// lang: resolve('src/project/ehome-admin/admin/src/lang'),
-			// microConfig: resolve('src/project/ehome-admin/admin/src/microConfig.js'),
 		},
 	},
 	plugins: [
@@ -54,7 +38,7 @@ module.exports = {
 						modifyVars: {
 							'@primary-color': '#07A6F0',
 							'font-size-base': '14px',
-							'ant-prefix': packageJson.antdConfig.prefixCls
+							// 'ant-prefix': packageJson.antdConfig.prefixCls
 						},
 						javascriptEnabled: true,
 					},
