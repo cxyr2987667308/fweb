@@ -1,10 +1,11 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2022-09-15 17:26:54
- * @LastEditors: fanglijiao
+ * @LastEditTime: 2022-11-30 11:11:42
+ * @LastEditors: liF
  * @Description:
  */
+const packageJson = require('./package.json');
 const path = require('path');
 const resolve = dir => path.resolve(__dirname, dir);
 const CracoLessPlugin = require('craco-less');
@@ -33,7 +34,7 @@ module.exports = {
 			'react-ahax': resolve('src/common/react-ahax'),
 			action: resolve('src/common/utils/action.js'),
 			config: resolve('src/config.js'),
-			'@components': resolve('src/project/ehome-admin/admin/src/components'),
+			'@components': resolve('src/components'),
 			'ehome-dashboard': resolve('src/project/ehome-dashboard'),
 
 			// '../../../.start.json': resolve('src/.start.json'),
@@ -53,10 +54,12 @@ module.exports = {
 						modifyVars: {
 							'@primary-color': '#07A6F0',
 							'font-size-base': '14px',
+							'ant-prefix': packageJson.antdConfig.prefixCls
 						},
 						javascriptEnabled: true,
 					},
 				},
+
 				modifyLessRule(lessRule, context) {
 					// You have to exclude these file suffixes first,
 					// if you want to modify the less module's suffix
@@ -81,7 +84,15 @@ module.exports = {
 	],
 	babel: {
 		plugins: [
-			['@babel/plugin-proposal-decorators', { legacy: true }]
+			['@babel/plugin-proposal-decorators', { legacy: true }],
+			[
+				'import',
+				{
+					libraryName: 'antd',
+					// libraryDirectory: 'es',
+					style: true
+				}
+			]
 		]
 	},
 	module: {
@@ -100,6 +111,7 @@ module.exports = {
 		}]
 	},
 	devServer: {
+		port: 8081,
 		proxy: [{
 			context: ['/evh', '/api'],
 			target: targetPath,
