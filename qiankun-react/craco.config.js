@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2022-12-02 17:42:36
+ * @LastEditTime: 2022-12-05 18:14:50
  * @LastEditors: liF
  * @Description:
  */
@@ -26,7 +26,8 @@ module.exports = {
 	},
 	webpack: {
 		alias: {
-			utils: resolve('src/common/utils'),
+			utils: resolve('src/utils'),
+			components: resolve('src/components'),
 		},
 	},
 	plugins: [

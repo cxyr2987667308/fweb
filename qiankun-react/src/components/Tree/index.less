@@ -1,0 +1,96 @@
+.component-tree {
+	ul {
+		margin: 0;
+		padding: 0;
+
+		li {
+			font-size: 14px;
+			color: rgba(0, 0, 0, 0.85);
+			list-style: none;
+
+			.info {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				padding: 8px 0;
+				padding-left: 14px;
+				cursor: pointer;
+
+				&-left {
+					width: 24px;
+					min-height: 2px;
+					font-size: 10px;
+					color: #666;
+					text-align: center;
+				}
+
+				&-right {
+					margin-right: 14px;
+
+					.anticon-more {
+						padding: 6px;
+					}
+					&-add{
+						margin-right: 14px;
+					}
+				}
+
+				> .name {
+					display: flex;
+					flex: 1;
+					padding: 0 12px 0 10px;
+					overflow: hidden;
+
+					> span {
+						margin-right: 6px;
+					}
+
+					path {
+						fill: rgba(0, 0, 0, 0.85);
+					}
+
+					polygon {
+						fill: rgba(0, 0, 0, 0.85);
+					}
+
+					.text {
+						flex: 1;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				}
+
+				.anticon-more {
+					visibility: hidden;
+
+					&:hover {
+						color: @primary-color;
+					}
+				}
+
+				&:hover {
+					background: rgba(0, 0, 0, 0.04);
+
+					.anticon-more {
+						visibility: visible;
+					}
+				}
+
+				&.isActive {
+					color: @primary-color;
+					background: rgba(7, 166, 240, 0.1);
+
+					.name {
+						path {
+							fill: @primary-color;
+						}
+						polygon {
+							fill: @primary-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}
