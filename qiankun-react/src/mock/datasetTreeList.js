@@ -1,7 +1,7 @@
 /*
  * @Author: colin
  * @Date: 2022-04-01 16:43:08
- * @LastEditTime: 2022-12-05 19:32:29
+ * @LastEditTime: 2022-12-09 11:02:15
  * @LastEditors: liF
  * @Description: 获取订单详情mock数据
  */
@@ -50,10 +50,10 @@ module.exports = {
 								childList: []
 						},
 				]
-		}
-],
-customerTreeList: [
-		{
+			}
+		],
+		customerTreeList: [
+			{
 				treeNodeId: 1501,
 				nodeName: "含静态数据集",
 				nodeType: 1,
@@ -107,8 +107,8 @@ customerTreeList: [
 								childList: []
 						}
 				]
-		},
-		{
+			},
+			{
 				treeNodeId: 1490,
 				nodeName: "机房证件明细表",
 				nodeType: 2,
@@ -120,8 +120,8 @@ customerTreeList: [
 				operatorUid: 1,
 				createType: 1,
 				childList: []
-		},
-		{
+			},
+			{
 				treeNodeId: 468,
 				nodeName: "jin_test_project",
 				nodeType: 2,
@@ -133,8 +133,8 @@ customerTreeList: [
 				operatorUid: 1,
 				createType: 1,
 				childList: []
-		},
-		{
+			},
+			{
 				treeNodeId: 48,
 				nodeName: "DY的数据集11",
 				nodeType: 2,
@@ -145,8 +145,8 @@ customerTreeList: [
 				updateTime: 1631074746000,
 				operatorUid: 1,
 				childList: []
-		},
-		{
+			},
+			{
 				treeNodeId: 46,
 				nodeName: "DY测试分组",
 				nodeType: 1,

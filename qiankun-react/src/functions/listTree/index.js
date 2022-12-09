@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2022-09-19 15:04:17
  * @LastEditors: liF
- * @LastEditTime: 2022-12-05 18:42:55
+ * @LastEditTime: 2022-12-09 11:45:12
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
@@ -11,6 +11,8 @@ import { api } from './config';
 import { fetchApi } from 'utils';
 import './index.less';
 
+let datasetData = [];
+let listAllData = [];
 const ListTree = () => {
     const [state, setState] = useState({
 		searchValue: '',
@@ -38,6 +40,54 @@ const ListTree = () => {
 		}));
 	};
 
+	// 默认选中项
+	const getDefault = (arr) => {
+		const expandedKeyArr = [];
+		let activeNode = {};
+		const func = (arr = []) => {
+			if (!arr.length) { return; }
+
+			arr.forEach(item => {
+				if (item.childList?.length) {
+					if (item.defaultFold === 1) {
+						expandedKeyArr.push(item.treeNodeId);
+					}
+
+					func(item.childList);
+				}
+
+				if (item.treeNodeId === state.activeItem?.treeNodeId) {
+					activeNode = item;
+				}
+			});
+		};
+
+		func(arr);
+
+		return { expandedKeyArr, activeNode };
+	};
+
+	// 获取数据集列表 扁平化
+	const getDatasetData = (arr) => {
+		const arrData = [];
+		const func = (arr) => {
+			arr.forEach(item => {
+				// 1 分组; 2 数据集
+				if (item.nodeType === 2) {
+					arrData.push(item);
+				}
+
+				if (item?.childList?.length) {
+					func(item.childList);
+				}
+			});
+		};
+
+		func(arr);
+
+		return arrData;
+	};
+
 	// 获取数据集树形列表
 	const getDataList = (isInit = false) => {
 		updateState({
@@ -45,8 +95,10 @@ const ListTree = () => {
 		});
 
 		fetchApi({
-			api: api.getTreeList,
-			data: {},
+			api: api.datasetTreeList,
+			data: {
+				namespaceId: 11
+			},
 			success: ({customerTreeList = [], standardTreeList=[]}) => {
 				const myArr = [
 					{
@@ -109,22 +161,24 @@ const ListTree = () => {
 	};
 
 	return (
-		<Tree 
-			autoExpandParent={autoExpandParent}
-			searchValue={searchValue}
-			expandedKeys={expandedKeys}
-			onExpand={onExpand}
-			onChange={handleClick}
-			treeData={treeData}
-			activeItem={activeItem}
-			more={{
-				toRename: () => {},
-				toMove: targetItem => updateState({ visibleMove: true, targetItem }),
-				toDelete: targetItem => toDelete(targetItem),
-				addFolder: () => updateState({ visibleAddFolder: true }),
-				addSchema: () => updateState({ visibleAddSchema: true }),
-			}}
-		/>
+		<div className='fl-list-tree'>
+			<Tree 
+				autoExpandParent={autoExpandParent}
+				searchValue={searchValue}
+				expandedKeys={expandedKeys}
+				onExpand={onExpand}
+				onChange={handleClick}
+				treeData={treeData}
+				activeItem={activeItem}
+				more={{
+					toRename: () => {},
+					toMove: targetItem => updateState({ visibleMove: true, targetItem }),
+					toDelete: targetItem => toDelete(targetItem),
+					addFolder: () => updateState({ visibleAddFolder: true }),
+					addSchema: () => updateState({ visibleAddSchema: true }),
+				}}
+			/>
+		</div>
 	);
 };
 

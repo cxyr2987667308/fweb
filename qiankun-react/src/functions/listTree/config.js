@@ -6,7 +6,7 @@
  */
 const api = {
 	// 树列表
-	getTreeList: '/get/tree/list',
+	datasetTreeList: '/ehreport/dataset/tree/list',
 };
 
 export { api };
