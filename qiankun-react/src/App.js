@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:19:33
- * @LastEditTime: 2022-12-09 12:03:20
+ * @LastEditTime: 2022-12-09 12:24:59
  * @LastEditors: liF
  * @Description:
  */
@@ -21,7 +21,7 @@ const Home = reactLoadable(() => import('./routes/home'));
 const Login = reactLoadable(() => import('./routes/login'));
 
 const App = () => (
-	<ConfigProvider prefixCls>
+	<ConfigProvider prefixCls={prefixCls}>
 		<Router>
 			<div>
 				<Switch>

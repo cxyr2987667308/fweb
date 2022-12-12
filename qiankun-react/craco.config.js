@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2022-12-05 18:14:50
+ * @LastEditTime: 2022-12-09 14:29:24
  * @LastEditors: liF
  * @Description:
  */
@@ -39,7 +39,7 @@ module.exports = {
 						modifyVars: {
 							'@primary-color': '#07A6F0',
 							'font-size-base': '14px',
-							// 'ant-prefix': packageJson.antdConfig.prefixCls
+							'ant-prefix': packageJson.antdConfig.prefixCls
 						},
 						javascriptEnabled: true,
 					},
