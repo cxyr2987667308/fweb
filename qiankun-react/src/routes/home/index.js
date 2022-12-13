@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2022-12-09 11:59:04
+ * @LastEditTime: 2022-12-13 10:14:16
  * @LastEditors: liF
  * @Description:
  */
@@ -92,11 +92,7 @@ class Home extends React.Component {
     							<li key={dataType} className={dataType === pathname.split('/')[1] ? 'isActive' : ''}>
     								<a onClick={() => {
     									this.setState({ isDescription: false });
-  									if (dataType === 'schema-home') {
-  										this.props.history.replace('/');
-  									} else {
-  										this.props.history.replace(`/${dataType}`);
-  									}
+											this.props.history.replace(`/${dataType}`);
     								}}>{name}</a>
     							</li>
     						);
@@ -111,14 +107,6 @@ class Home extends React.Component {
     								<Route key={key} path={`/${key}`} component={Component} />
     							);
     						})}
-
-  						<Route path='/'>
-  							<Switch>
-  								{!!datasetId && <Route path='/' component={exportModules[convert('schema-home')]} />}
-  								<Route path='/view' component={exportModules[convert('dashboard-view')]} />
-  								<Route exact path='/' component={exportModules[convert('dashboard-edit')]} />
-  							</Switch>
-  						</Route>
     					</Switch>
     				</div>
     			</div>
