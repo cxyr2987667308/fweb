@@ -4,7 +4,7 @@
  * @Author: 方丽娇
  * @Date: 2021-07-12 10:28:38
  * @LastEditors: liF
- * @LastEditTime: 2022-12-24 10:58:40
+ * @LastEditTime: 2022-12-24 11:14:08
  */
 import React, { useState, useEffect } from 'react';
 import { Form } from 'antd';
@@ -20,7 +20,7 @@ export default function ColorSelect(props) {
 	return (
 		<div className={prefixCls}>
 			<Form form={form} className={prefixCls}>
-				<Form.Item label='颜色'
+				<Form.Item label='颜色' name='color'
 					rules={[{ required: true, message: '请选择颜色' }]}
 				>
 					<ColorPicker disabled={readOnly} />
