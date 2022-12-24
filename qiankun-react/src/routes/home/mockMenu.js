@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2022-12-13 18:05:45
+ * @LastEditTime: 2022-12-24 10:43:34
  * @LastEditors: liF
  * @Description:
  */
@@ -16,7 +16,7 @@ const mockMenu = [{
 	dataType: 'pin-yin'
 }, {
 	name: '拾色器',
-	dataType: 'Html2canvas'
+	dataType: 'color-select'
 }, {
 	name: '字符串化',
 	dataType: 'pin-yin'
