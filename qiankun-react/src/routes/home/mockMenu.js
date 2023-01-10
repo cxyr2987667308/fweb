@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2022-12-24 10:43:34
+ * @LastEditTime: 2023-01-10 11:56:52
  * @LastEditors: liF
  * @Description:
  */
@@ -18,10 +18,13 @@ const mockMenu = [{
 	name: '拾色器',
 	dataType: 'color-select'
 }, {
-	name: '字符串化',
-	dataType: 'pin-yin'
+	name: '动态aip',
+	dataType: 'api-editor'
 }, {
 	name: 'Iframe发送消息 postMessage',
+	dataType: 'pin-yin'
+}, {
+	name: '手写promise',
 	dataType: 'pin-yin'
 }];
 
