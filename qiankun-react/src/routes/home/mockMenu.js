@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2023-01-10 11:56:52
+ * @LastEditTime: 2023-01-12 15:52:27
  * @LastEditors: liF
  * @Description:
  */
@@ -22,7 +22,7 @@ const mockMenu = [{
 	dataType: 'api-editor'
 }, {
 	name: 'Iframe发送消息 postMessage',
-	dataType: 'pin-yin'
+	dataType: 'iframe-message'
 }, {
 	name: '手写promise',
 	dataType: 'pin-yin'
