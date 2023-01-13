@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2023-01-12 15:52:27
+ * @LastEditTime: 2023-01-13 14:59:18
  * @LastEditors: liF
  * @Description:
  */
@@ -25,7 +25,7 @@ const mockMenu = [{
 	dataType: 'iframe-message'
 }, {
 	name: '手写promise',
-	dataType: 'pin-yin'
+	dataType: 'promise-demo'
 }];
 
 export default mockMenu;
