@@ -4,22 +4,18 @@
  * @Author: 方丽娇
  * @Date: 2021-07-12 10:28:38
  * @LastEditors: liF
- * @LastEditTime: 2023-01-16 16:16:06
+ * @LastEditTime: 2023-01-16 16:18:27
  */
 import React, { useState, useEffect } from 'react';
-import stringify from 'json-stable-stringify';
-import { pinyin } from 'pinyin-pro';
-import { Button, Input, Select } from 'antd';
 import MYPromise from './../../utils/mypromise';
 import './index.less';
 
-const { TextArea } = Input;
 const prefixCls = 'fl-promise-demo';
 
 export default function PromiseDemo(props) {
 	// 创建实例对象
 	const create = () => {
-		let promise = new Promise((resolve, reject)=>{
+		let promise = new MYPromise((resolve, reject)=>{
 			console.log('create')
 			reject('create')
 		})
