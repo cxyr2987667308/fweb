@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2023-01-12 16:54:28
  * @LastEditors: liF
- * @LastEditTime: 2023-01-16 16:11:44
+ * @LastEditTime: 2023-01-16 16:29:21
  */
 const Status = {
   PENDING: 'pending',
@@ -82,12 +82,9 @@ class MYPromise {
       reject(error);
     }
   }
-  isFunc(e) {
-    return typeof e === 'function';
-  }
   then(onFulfilled, onRejected) {
-    onFulfilled = this.isFunc(onFulfilled) ? onFulfilled : value => value;
-    onRejected = this.isFunc(onRejected) ? onRejected : reason => { throw reason; };
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+    onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason; };
 
     const detalCallback = (promise2, result, resolve, reject) => {
       queueMicrotask(() => {
