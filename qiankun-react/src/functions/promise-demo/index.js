@@ -4,7 +4,7 @@
  * @Author: 方丽娇
  * @Date: 2021-07-12 10:28:38
  * @LastEditors: liF
- * @LastEditTime: 2023-01-13 12:23:22
+ * @LastEditTime: 2023-01-16 16:16:06
  */
 import React, { useState, useEffect } from 'react';
 import stringify from 'json-stable-stringify';
@@ -19,14 +19,14 @@ const prefixCls = 'fl-promise-demo';
 export default function PromiseDemo(props) {
 	// 创建实例对象
 	const create = () => {
-		let promise = new MYPromise((resolve, reject)=>{
+		let promise = new Promise((resolve, reject)=>{
 			console.log('create')
 			reject('create')
 		})
 		let n = promise.then((res)=>{
 			console.log('res')
 			return 'then'
-		}, (reson)=>{
+		}, (reson) => {
 			console.log(reson, 'eoor');
 		})
 
@@ -34,9 +34,9 @@ export default function PromiseDemo(props) {
 			console.log(n)
 		}, 100)
 
-		// .then((res)=>{
-		//   console.log(res+ '2')
-		// })
+		n.then((res)=>{
+		  console.log(res+ '2')
+		})
 
 		console.log(1)
 

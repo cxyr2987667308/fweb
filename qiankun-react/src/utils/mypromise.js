@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2023-01-12 16:54:28
  * @LastEditors: liF
- * @LastEditTime: 2023-01-13 17:16:47
+ * @LastEditTime: 2023-01-16 16:11:44
  */
 const Status = {
   PENDING: 'pending',
@@ -19,7 +19,7 @@ class MYPromise {
     this.onRejectedCallbacks = [];
 
     let toThrow = reason => {
-      if(!this.onResolveCallbacks?.length){
+      if(!this.onRejectedCallbacks?.length){
         throw(reason);
       } else {
         this.onRejectedCallbacks.forEach(callback => {
@@ -79,29 +79,20 @@ class MYPromise {
     try {
       executor(resolve, reject);
     } catch (error) {
-      this.reject.call(this, error);
+      reject(error);
     }
   }
   isFunc(e) {
     return typeof e === 'function';
   }
   then(onFulfilled, onRejected) {
-    const fulfillFn = this.isFunc(onFulfilled) ? onFulfilled : (value) => value;
-    const rejectFn = this.isFunc(onRejected) ? onRejected : (reason) => { throw reason; };
-    const fulfillFnWithTryCatch = (resolve, reject) => {
+    onFulfilled = this.isFunc(onFulfilled) ? onFulfilled : value => value;
+    onRejected = this.isFunc(onRejected) ? onRejected : reason => { throw reason; };
+
+    const detalCallback = (promise2, result, resolve, reject) => {
       queueMicrotask(() => {
         try {
-          let x = fulfillFn(this.value);
-          resolve(x);
-        } catch (error) {
-          reject(error);
-        }
-      })
-    }
-    const rejectFnWithTryCatch = (resolve, reject) => {
-      queueMicrotask(() => {
-        try {
-          let x = rejectFn(this.reason);
+          let x = promise2(result);
           resolve(x);
         } catch (error) {
           reject(error);
@@ -112,15 +103,15 @@ class MYPromise {
       // 构造函数是同步
       case Status.FULFILLED: {
         const promise2 = new MYPromise((res, rej) => {
-          fulfillFnWithTryCatch(res, rej);
+          detalCallback(onFulfilled, this.value, res, rej);
         })
         return promise2;
       }
 
       case Status.REJECTED: {
         const promise2 = new MYPromise((res, rej) => {
-          this.REJECTED_CALLBACK_LIST.push(() => {
-            rejectFnWithTryCatch(res, rej);
+          this.onRejectedCallbacks.push(() => {
+            detalCallback(onRejected, this.reason, res, rej);
           })
         })
         return promise2;
@@ -129,11 +120,11 @@ class MYPromise {
       // 构造函数为异步，或者 then 返回的 实例
       case Status.PENDING: {
         const promise2 = new MYPromise((res, rej) => {
-          this.FULFILLED_CALLBACK_LIST.push(() => {
-            fulfillFnWithTryCatch(res, rej);
+          this.onResolveCallbacks.push(() => {
+            detalCallback(onFulfilled, this.value, res, rej);
           })
-          this.REJECTED_CALLBACK_LIST.push(() => {
-            rejectFnWithTryCatch(res, rej);
+          this.onRejectedCallbacks.push(() => {
+            detalCallback(onRejected, this.reason, res, rej);
           })
         })
         return promise2;
