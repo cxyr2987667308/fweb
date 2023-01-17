@@ -1,45 +1,12 @@
 .fl-iframe-message {
-	&-top {
-		margin-bottom: 12px;
+	height: 100%;
+	overflow-y: auto;
 
-		> div {
-			margin-right: 10px;
-		}
-	}
-
-	&-main {
-		display: flex;
-		max-width: 1200px;
-
-		.main-left, .main-right {
-			flex: 1;
-			min-height: 100px;
-			border: 1px solid rgba(0, 0, 0, 0.1);
-			border-radius: 4px;
-
-			.title {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 16px 24px;
-				height: 54px;
-				font-weight: 600;
-				background: rgba(0, 0, 0, 0.02);
-			}
-		}
-
-		.main-left {
-			margin-right: 10px;
-
-			textarea {
-				border: 0;
-			}
-		}
-
-		.main-right {
-			pre {
-				padding: 10px;
-			}
-		}
+	pre {
+		padding: 12px;
+		font-size: 0.8em;
+		font-weight: 500;
+		color: rgba(0, 0, 0, 0.65);
+		background: #e9f1f4;
 	}
 }
