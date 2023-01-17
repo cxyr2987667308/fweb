@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2023-01-12 16:54:28
  * @LastEditors: liF
- * @LastEditTime: 2023-01-16 16:29:21
+ * @LastEditTime: 2023-01-17 16:47:16
  */
 const Status = {
   PENDING: 'pending',
@@ -29,7 +29,7 @@ class MYPromise {
       }
     }
 
-    let resolve = value => {
+    const resolve = value => {
       if(this.status === Status.PENDING) {
         if(value instanceof MYPromise){
           if(v === this){
@@ -52,7 +52,7 @@ class MYPromise {
       }
     }
 
-    let reject = reason => {
+    const reject = reason => {
       if(this.status === Status.PENDING){
         if(reason instanceof MYPromise){
           if(reason === this){

@@ -4,15 +4,23 @@
  * @Author: 方丽娇
  * @Date: 2021-07-12 10:28:38
  * @LastEditors: liF
- * @LastEditTime: 2023-01-16 16:18:27
+ * @LastEditTime: 2023-01-17 11:27:30
  */
 import React, { useState, useEffect } from 'react';
 import MYPromise from './../../utils/mypromise';
+import ReactMarkdown from 'react-markdown';
+import markdown from './doc.md';
 import './index.less';
 
 const prefixCls = 'fl-promise-demo';
 
 export default function PromiseDemo(props) {
+	const [mdContent, setMdContent] = useState('');
+	 
+	useEffect(() => {
+		fetch(markdown).then(res => res.text()).then(text => setMdContent(text));
+	}, [])
+
 	// 创建实例对象
 	const create = () => {
 		let promise = new MYPromise((resolve, reject)=>{
@@ -39,18 +47,10 @@ export default function PromiseDemo(props) {
 	}
 	create();
 
-	const tt = () => {
-		
-	}
 
 	return (
 		<div className={prefixCls}>
-			呃呃呃
-			<div></div>
-			<ul>
-				<li></li>
-				<li></li>
-			</ul>
+			<ReactMarkdown children={mdContent}/>
 		</div>
 	);
 }

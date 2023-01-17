@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2022-12-09 14:29:24
+ * @LastEditTime: 2023-01-16 18:14:53
  * @LastEditors: liF
  * @Description:
  */
@@ -93,6 +93,14 @@ module.exports = {
 			// options: {
 			// 	limit: 10000,
 			// },
+		}, {
+			test: /\.md$/,
+			use: [{
+				loader: 'html-loader',
+			}, {
+				loader: 'markdown-loader',
+				options: {}
+			}]
 		}]
 	},
 	devServer: {
