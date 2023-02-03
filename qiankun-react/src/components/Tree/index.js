@@ -16,7 +16,7 @@ import './index.less';
 const prefixCls = 'component-tree';
 
 export default function Tree(props) {
-	const { searchValue, activeItem, treeData, onExpand, expandedKeys = [], onChange, more } = props;
+	const { searchValue, activeItem, treeData, onExpand, expandedKeys = [], onChange, more, style } = props;
 
 	// 点击事件
 	const handleClick = (item = {}, e) => {
@@ -141,7 +141,7 @@ export default function Tree(props) {
 	});
 
 	return (
-		<div className={prefixCls}>
+		<div className={prefixCls} style={style}>
 			<ul>
 				{loop(treeData)}
 			</ul>

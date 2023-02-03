@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2022-09-19 15:04:17
  * @LastEditors: liF
- * @LastEditTime: 2022-12-09 11:45:12
+ * @LastEditTime: 2023-02-03 18:28:02
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
@@ -23,7 +23,8 @@ const ListTree = () => {
 		autoExpandParent: true,
 		treeData: [],
 		searchOptions: [],
-		isEmpty: false
+		isEmpty: false,
+
 	});
 
 	const {
@@ -160,9 +161,13 @@ const ListTree = () => {
 		onChange(activeItem);
 	};
 
+	const onChange = () => {
+		
+	}
+
 	return (
 		<div className='fl-list-tree'>
-			<Tree 
+			<Tree style={{ width: 300 }}
 				autoExpandParent={autoExpandParent}
 				searchValue={searchValue}
 				expandedKeys={expandedKeys}
@@ -178,6 +183,11 @@ const ListTree = () => {
 					addSchema: () => updateState({ visibleAddSchema: true }),
 				}}
 			/>
+
+			<div className='fl-list-tree-main'>
+				当前点击项为: 
+				<div>{activeItem.nodeName || '暂无'}</div>
+			</div>
 		</div>
 	);
 };
