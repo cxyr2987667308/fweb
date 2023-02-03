@@ -2,13 +2,17 @@
  * @Author: liF
  * @Date: 2022-11-17 20:26:21
  * @LastEditors: liF
- * @LastEditTime: 2022-12-02 18:08:24
+ * @LastEditTime: 2023-02-03 18:10:18
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+if(process.env.REACT_APP_MOCK === 'true'){
+	require('./mock');
+}
 
 const root = ReactDOM.createRoot(document.getElementById('appRoot'));
 root.render(

@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-09 09:19:33
- * @LastEditTime: 2022-12-09 12:24:59
+ * @LastEditTime: 2023-02-03 18:05:02
  * @LastEditors: liF
  * @Description:
  */
@@ -14,6 +14,7 @@ import 'antd/lib/style';
 // import zhCN from 'antd/es/locale/zh_CN';
 import './App.less';
 import packageJson from './../package.json';
+
 const prefixCls = packageJson.antdConfig.prefixCls;
 
 // import Home from './routes/home';
