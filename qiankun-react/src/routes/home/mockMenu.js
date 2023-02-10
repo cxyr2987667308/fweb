@@ -26,6 +26,9 @@ const mockMenu = [{
 }, {
 	name: '手写promise',
 	dataType: 'promise-demo'
+}, {
+	name: 'mock 数据',
+	dataType: 'mock-info'
 }];
 
 export default mockMenu;
