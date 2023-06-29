@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="164px" height="47px" viewBox="0 0 164 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>引导-关联表</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="引导-关联表">
+            <g id="表格备份" transform="translate(117.000000, 0.000000)" fill-rule="nonzero">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="47" height="47"></rect>
+                <polygon id="路径" fill="#D9D9D9" points="0 0 47 0 47 12 0 12"></polygon>
+                <polygon id="路径" fill="#D9D9D9" points="0 0 3 0 3 47 0 47"></polygon>
+                <path d="M0,44.0625 L47,44.0625 L47,47 L0,47 L0,44.0625 Z M0,0 L47,0 L47,2.9375 L0,2.9375 L0,0 Z" id="形状" fill="#D9D9D9"></path>
+                <path d="M44.0666667,0 L47,0 L47,47 L44.0666667,47 L44.0666667,0 Z M3,20.5625 L44.0666667,20.5625 L44.0666667,23.5 L3,23.5 L3,20.5625 Z" id="形状" fill="#D9D9D9"></path>
+                <path d="M14,12 L17,12 L17,44 L14,44 L14,12 Z M29,12 L32,12 L32,44 L29,44 L29,12 Z" id="形状" fill="#D9D9D9"></path>
+                <polygon id="路径" fill="#D9D9D9" points="3 32 44 32 44 35 3 35"></polygon>
+            </g>
+            <g id="表格备份-2" fill-rule="nonzero">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="47" height="47"></rect>
+                <polygon id="路径" fill="#D9D9D9" points="0 0 47 0 47 12 0 12"></polygon>
+                <polygon id="路径" fill="#D9D9D9" points="0 0 3 0 3 47 0 47"></polygon>
+                <path d="M0,44.0625 L47,44.0625 L47,47 L0,47 L0,44.0625 Z M0,0 L47,0 L47,2.9375 L0,2.9375 L0,0 Z" id="形状" fill="#D9D9D9"></path>
+                <path d="M44.0666667,0 L47,0 L47,47 L44.0666667,47 L44.0666667,0 Z M3,20.5625 L44.0666667,20.5625 L44.0666667,23.5 L3,23.5 L3,20.5625 Z" id="形状" fill="#D9D9D9"></path>
+                <path d="M14,12 L17,12 L17,44 L14,44 L14,12 Z M29,12 L32,12 L32,44 L29,44 L29,12 Z" id="形状" fill="#D9D9D9"></path>
+                <polygon id="路径" fill="#D9D9D9" points="3 32 44 32 44 35 3 35"></polygon>
+            </g>
+            <g id="关联条-未选中备份-2" transform="translate(53.000000, 18.000000)" fill="#E3E3E3">
+                <path d="M17,0 L23,0 L23,2 L19,2 L19,9 L23,9 L23,11 L17,11 L17,0 Z" id="形状结合备份-2"></path>
+                <path d="M33,0 L39,0 L39,2 L35,2 L35,9 L39,9 L39,11 L33,11 L33,0 Z" id="形状结合备份-3" transform="translate(36.000000, 5.500000) scale(-1, 1) translate(-36.000000, -5.500000) "></path>
+                <rect id="矩形备份-7" x="0" y="4.5769043" width="58" height="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
