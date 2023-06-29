@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2022-09-19 15:04:17
  * @LastEditors: liF
- * @LastEditTime: 2023-02-03 18:28:02
+ * @LastEditTime: 2023-06-29 17:30:27
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
@@ -167,7 +167,7 @@ const ListTree = () => {
 
 	return (
 		<div className='fl-list-tree'>
-			<Tree style={{ width: 300 }}
+			<Tree className='fl-list-tree-menu' style={{ width: 300 }}
 				autoExpandParent={autoExpandParent}
 				searchValue={searchValue}
 				expandedKeys={expandedKeys}

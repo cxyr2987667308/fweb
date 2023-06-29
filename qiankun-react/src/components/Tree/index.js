@@ -2,7 +2,7 @@
  * @Author: liF
  * @Date: 2022-12-05 16:10:02
  * @LastEditors: liF
- * @LastEditTime: 2022-12-05 16:40:36
+ * @LastEditTime: 2023-06-29 17:32:34
  */
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
@@ -16,7 +16,7 @@ import './index.less';
 const prefixCls = 'component-tree';
 
 export default function Tree(props) {
-	const { searchValue, activeItem, treeData, onExpand, expandedKeys = [], onChange, more, style } = props;
+	const { searchValue, activeItem, treeData, onExpand, expandedKeys = [], onChange, more, style, className } = props;
 
 	// 点击事件
 	const handleClick = (item = {}, e) => {
@@ -141,7 +141,7 @@ export default function Tree(props) {
 	});
 
 	return (
-		<div className={prefixCls} style={style}>
+		<div className={classname(prefixCls, className)} style={style}>
 			<ul>
 				{loop(treeData)}
 			</ul>
