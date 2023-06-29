@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-10-19 11:05:57
- * @LastEditTime: 2023-02-07 16:30:43
+ * @LastEditTime: 2023-06-29 18:06:53
  * @LastEditors: liF
  * @Description:
  */
@@ -13,6 +13,7 @@ import ApiEditor from './api-editor';
 import IframeMessage from './iframe-message';
 import PromiseDemo from './promise-demo';
 import MockInfo from './mock-info';
+import TableJoin from './table-join';
 
 export {
 	ListTree,
@@ -23,4 +24,5 @@ export {
 	IframeMessage,
 	PromiseDemo,
 	MockInfo,
+	TableJoin,
 };

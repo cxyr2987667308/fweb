@@ -1,13 +1,16 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2023-01-13 14:59:18
+ * @LastEditTime: 2023-06-29 18:07:51
  * @LastEditors: liF
  * @Description:
  */
 const mockMenu = [{
 	name: '树列表',
 	dataType: 'list-tree'
+}, {
+	name: '关联树',
+	dataType: 'table-join'
 }, {
 	name: 'js生成截图',
 	dataType: 'Html2canvas'
