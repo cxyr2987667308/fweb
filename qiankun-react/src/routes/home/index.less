@@ -2,8 +2,9 @@
     &-menu {
         width: 220px;
         padding: 12px 0;
-        background: #fbfbfb;
-        border-right: 1px solid #ddd;
+        background: #fff;
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
 
         &:hover {
             width: 220px;
@@ -22,7 +23,7 @@
                 border-right: 2px solid #fbfbfb;
 
                 a {
-                    color: rgba(0, 0, 0, 0.65);
+                    color: rgba(0, 0, 0, 0.85);
                 }
 
                 &.isActive{
@@ -43,8 +44,8 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        padding: 12px;
-        background: #fff;
+        padding: 16px;
+        background: #f5f6f7;
 
         &.isDescription{
             background: #f8f8f8;
@@ -58,6 +59,10 @@
         &-main{
             overflow: hidden;
             flex: 1;
+            padding: 16px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         }
     }
 }
