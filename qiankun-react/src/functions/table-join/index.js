@@ -19,7 +19,6 @@ export default function TableJoin(props) {
 	const [tableList, setTableList] = useState({});
 
 	useEffect(() => {
-		console.log('00--00', 122);
 		fetchApi({
 			api: api.getJoinTableList,
 			data: {
@@ -27,7 +26,6 @@ export default function TableJoin(props) {
 			},
 			success: (res) => {
 				setTableList(res);
-				console.log('res----', res);
 			},
 			complete: () => {
 				
