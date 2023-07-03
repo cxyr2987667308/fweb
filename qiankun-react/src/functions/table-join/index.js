@@ -4,9 +4,10 @@
  * @Author: 方丽娇
  * @Date: 2021-07-12 10:28:38
  * @LastEditors: liF
- * @LastEditTime: 2023-06-29 18:38:53
+ * @LastEditTime: 2023-07-03 12:02:51
  */
 import React, { useState, useEffect } from 'react';
+import { cloneDeep } from 'lodash';
 import CardTree from './../../components/CardTree';
 import { api } from './config';
 import { fetchApi } from 'utils';
@@ -17,25 +18,31 @@ export default function TableJoin(props) {
 	const [currentTable, setCurrentTable] = useState({});
 	const [tableList, setTableList] = useState({});
 
-	const toJoin = () => {
+	useEffect(() => {
+		console.log('00--00', 122);
 		fetchApi({
 			api: api.getJoinTableList,
 			data: {
 				namespaceId: 11
 			},
 			success: (res) => {
-				
+				setTableList(res);
+				console.log('res----', res);
 			},
 			complete: () => {
 				
 			}
 		});
+	}, [])
+
+	const toJoin = () => {
+		console.log('去添加关联表');
 	}
 	
 	return (
 		<div className={prefixCls}>
-			<CardTree listData={cloneDeep(configDTO)}
-				configDTO={configDTO}
+			<CardTree listData={cloneDeep(tableList)}
+				configDTO={tableList}
 				currentTable={currentTable}
 				onClick={toJoin}
 			/>

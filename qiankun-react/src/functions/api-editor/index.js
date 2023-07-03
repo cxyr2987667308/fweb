@@ -1,7 +1,7 @@
 /*
  * @Author: 方丽娇
  * @Date: 2021-11-18 12:26:51
- * @LastEditTime: 2023-01-10 11:39:13
+ * @LastEditTime: 2023-07-03 10:56:12
  * @LastEditors: liF
  * @Description:
  */
@@ -13,7 +13,7 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-mysql';
 import 'ace-builds/src-noconflict/theme-tomorrow';
 import 'ace-builds/src-min-noconflict/ext-language_tools';
-import { api } from '../../config';
+import { api } from './config';
 import { fetchApi } from 'utils';
 import './index.less';
 
