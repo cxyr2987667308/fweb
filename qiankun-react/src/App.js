@@ -23,7 +23,7 @@ const Login = reactLoadable(() => import('./routes/login'));
 
 const App = () => (
 	<ConfigProvider prefixCls={prefixCls}>
-		<Router>
+		<Router basename={window.__POWERED_BY_QIANKUN__? '/react' : '/'}>
 			<div>
 				<Switch>
 					<Route exact path="/login" component={Login} />

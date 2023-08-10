@@ -26,7 +26,7 @@ class Layout extends React.Component {
 		return (
 			<div className={wrapCls} style={style}>
 				<div className={`${prefixCls}-header`}>
-					<div className="title">数据应用组件</div>
+					<div className="title">组件</div>
 				</div>
 
 				<div className={`${prefixCls}-main`}>

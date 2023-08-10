@@ -12,6 +12,7 @@ const CracoLessPlugin = require('craco-less');
 const { loaderByName } = require('@craco/craco');
 // const { ESLINT_MODES } = require('@craco/craco');
 const targetPath = require('./src/.start.json')?.proxy;
+const packageName = require('./package.json').name
 
 module.exports = {
 	typescript: {
@@ -29,6 +30,18 @@ module.exports = {
 			utils: resolve('src/utils'),
 			components: resolve('src/components'),
 		},
+		configure: (webpackConfig, {env, path}) => {
+			console.log('env', env);
+			console.log('path', path);
+			console.log('webpackConfig--', webpackConfig);
+			webpackConfig.output = {
+				...webpackConfig.output,
+				library: `${packageName}-[name]`,
+				libraryTarget: 'umd',
+				chunkLoadingGlobal: `webpackJsonp_${packageName}`
+			}
+			return webpackConfig;
+		}
 	},
 	plugins: [
 		{
