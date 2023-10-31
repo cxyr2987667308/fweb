@@ -32,6 +32,9 @@ const mockMenu = [{
 }, {
 	name: 'mock 数据',
 	dataType: 'mock-info'
+}, {
+	name: '表格 Table',
+	dataType: 'test-table'
 }];
 
 export default mockMenu;

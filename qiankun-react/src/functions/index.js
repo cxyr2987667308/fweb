@@ -14,6 +14,7 @@ import IframeMessage from './iframe-message';
 import PromiseDemo from './promise-demo';
 import MockInfo from './mock-info';
 import TableJoin from './table-join';
+import TestTable from './test-table';
 
 export {
 	ListTree,
@@ -25,4 +26,5 @@ export {
 	PromiseDemo,
 	MockInfo,
 	TableJoin,
+	TestTable,
 };

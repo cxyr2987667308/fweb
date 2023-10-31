@@ -30,10 +30,7 @@ module.exports = {
 			utils: resolve('src/utils'),
 			components: resolve('src/components'),
 		},
-		configure: (webpackConfig, {env, path}) => {
-			console.log('env', env);
-			console.log('path', path);
-			console.log('webpackConfig--', webpackConfig);
+		configure: (webpackConfig, { env, path }) => {
 			webpackConfig.output = {
 				...webpackConfig.output,
 				library: `${packageName}-[name]`,
@@ -100,7 +97,7 @@ module.exports = {
 			// options: {
 			// 	limit: 10000,
 			// },
-		}, 	{
+		}, {
 			test: /\.(eot||ttf|woff|svg)$/i,
 			loader: 'file-loader',
 			// options: {
