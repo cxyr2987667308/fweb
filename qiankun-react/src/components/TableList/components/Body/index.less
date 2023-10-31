@@ -1,0 +1,26 @@
+.component-table-list-tbody {
+	width: 100%;
+	height: calc(100% - 80px);
+	overflow: auto scroll;
+
+	table {
+		width: 100%;
+
+		tr {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+			border-color: inherit;
+		}
+
+		tbody {
+			td {
+				position: relative;
+				box-sizing: border-box;
+				padding: 24px;
+				white-space: normal;
+				overflow-wrap: break-word;
+				transition: box-shadow 0.3s;
+				border-right: 1px solid rgba(0, 0, 0, 0.05);
+			}
+		}
+	}
+}

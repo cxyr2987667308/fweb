@@ -2,89 +2,81 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-10-31 12:22:07
+ * @Last Modified time: 2023-10-31 17:23:25
  */
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Header from './components/Header';
+import Body from './components/Body';
+import { getCellWidth } from './utils';
 import './index.less';
 
 const prefixCls = 'component-table-list';
 
 export default function TableList(props) {
+	const boxRef = useRef(null);
 	const headerRef = useRef(null);
 	const bodyRef = useRef(null);
+	const { columns, dataSource, style, className = '', minCellWidth = 120 } = props;
+	const [boxWidth, setBoxWidth] = useState(0);
+	const [cellWidth, setCellWidth] = useState(0);
+	const [bodyWidth, setBodyWidth] = useState(0);
 
-	const { columns, theme, dataSource, style, className = '' } = props;
+	useEffect(() => {
+		const ro = new ResizeObserver((entries, observer) => {
+			for (const entry of entries) {
+				const { height, width } = entry.contentRect;
+				const cellW = getCellWidth(width, minCellWidth, columns?.length);
+				setBoxWidth(width);
+				setCellWidth(cellW);
+				setBodyWidth(cellW * columns?.length);
+			}
+		});
+		ro.observe(boxRef.current);
+		return () => {
+			boxRef.current && ro.unobserve(boxRef.current);
+		};
+	}, []);
+
+	console.log('headerRef---', headerRef);
+	console.log('bodyRef---', bodyRef);
 
 	return (
-		<div className={classnames(prefixCls, className)} style={style}>
-			<div className='thead' ref={headerRef}
-				onScroll={() => {
-					bodyRef.current.scrollLeft = headerRef.current.scrollLeft;
-				}}>
-				<table border="0" cellPadding="0" cellSpacing="0"
-					style={{ tableLayout: 'fixed' }}
-				>
-					<colgroup>
-						{columns.map((item, i) => {
-							return <col key={i} style={{ width: '120px' }} />
-						})}
-					</colgroup>
+		<div className={classnames(prefixCls, className)} style={style} ref={boxRef}>
+			{cellWidth > 0 && (
+				<>
+					<Header curRef={headerRef}
+						boxWidth={boxWidth}
+						cellWidth={cellWidth}
+						columns={columns}
+						onScroll={() => {
+							bodyRef.current.scrollLeft = headerRef.current.scrollLeft;
+						}}
+					/>
 
-					<thead>
-						<tr className={theme?.commonTableClass}>
-							{columns.map((columnsItem, index) => {
-								return <th key={index} scope="col">{columnsItem.title}</th>
-							})}
-						</tr>
-					</thead>
-				</table>
-			</div>
-
-			<div className='tbody' ref={bodyRef}
-				onScroll={() => {
-					headerRef.current.scrollLeft = bodyRef.current.scrollLeft;
-				}}>
-				<table border="0" cellPadding="0" cellSpacing="0"
-					style={{ width: 1618, minWidth: '100%', tableLayout: 'fixed' }} // 'max-content'
-				>
-					<colgroup>
-						{columns.map((item, i) => {
-							return <col key={i} />
-						})}
-					</colgroup>
-
-					<tbody>
-						<tr className={theme?.commonTableClass} style={{ height: 0, fontSize: 0 }}>
-							{columns.map((columnsItem, index) => {
-								return <td key={index} style={{ padding: 0, border: 0, height: 0 }}>&nbsp;</td>
-							})}
-						</tr>
-
-						{dataSource.map((item, index) => {
-							return (
-								<tr key={index}>
-									{columns.map(columnsItem => {
-										return (
-											<td>
-												{item[columnsItem?.dataIndex || '']}
-											</td>
-										)
-									})}
-								</tr>
-							)
-						})}
-					</tbody>
-				</table>
-			</div>
+					<Body curRef={bodyRef}
+						width={bodyWidth}
+						columns={columns}
+						dataSource={dataSource}
+						onScroll={() => {
+							headerRef.current.scrollLeft = bodyRef.current.scrollLeft;
+						}}
+					/>
+				</>
+			)}
 		</div>
 	);
 }
 
 TableList.propTypes = {
-	// 是否显示
-	visible: PropTypes.bool,
-	// onClose 事件
-	onClose: PropTypes.func,
+	// 头部字段列表
+	columns: PropTypes.array,
+	// 列表数据
+	dataSource: PropTypes.array,
+	// 样式
+	style: PropTypes.object,
+	// 样式类名
+	className: PropTypes.string,
 };
