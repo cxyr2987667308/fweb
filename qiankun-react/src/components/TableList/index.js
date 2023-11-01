@@ -2,7 +2,7 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-10-31 17:23:25
+ * @Last Modified time: 2023-11-01 14:54:49
  */
 import React, { useEffect, useRef, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
@@ -20,7 +20,6 @@ export default function TableList(props) {
 	const headerRef = useRef(null);
 	const bodyRef = useRef(null);
 	const { columns, dataSource, style, className = '', minCellWidth = 120 } = props;
-	const [boxWidth, setBoxWidth] = useState(0);
 	const [cellWidth, setCellWidth] = useState(0);
 	const [bodyWidth, setBodyWidth] = useState(0);
 
@@ -28,8 +27,7 @@ export default function TableList(props) {
 		const ro = new ResizeObserver((entries, observer) => {
 			for (const entry of entries) {
 				const { height, width } = entry.contentRect;
-				const cellW = getCellWidth(width, minCellWidth, columns?.length);
-				setBoxWidth(width);
+				const cellW = getCellWidth(width, minCellWidth, columns?.length); console.log('cellW----', cellW);
 				setCellWidth(cellW);
 				setBodyWidth(cellW * columns?.length);
 			}
@@ -40,32 +38,24 @@ export default function TableList(props) {
 		};
 	}, []);
 
-	console.log('headerRef---', headerRef);
-	console.log('bodyRef---', bodyRef);
-
 	return (
 		<div className={classnames(prefixCls, className)} style={style} ref={boxRef}>
-			{cellWidth > 0 && (
-				<>
-					<Header curRef={headerRef}
-						boxWidth={boxWidth}
-						cellWidth={cellWidth}
-						columns={columns}
-						onScroll={() => {
-							bodyRef.current.scrollLeft = headerRef.current.scrollLeft;
-						}}
-					/>
+			<Header curRef={headerRef}
+				cellWidth={cellWidth}
+				columns={columns}
+				onScroll={() => {
+					bodyRef.current.scrollLeft = headerRef.current.scrollLeft;
+				}}
+			/>
 
-					<Body curRef={bodyRef}
-						width={bodyWidth}
-						columns={columns}
-						dataSource={dataSource}
-						onScroll={() => {
-							headerRef.current.scrollLeft = bodyRef.current.scrollLeft;
-						}}
-					/>
-				</>
-			)}
+			<Body curRef={bodyRef}
+				width={bodyWidth}
+				columns={columns}
+				dataSource={dataSource}
+				onScroll={() => {
+					headerRef.current.scrollLeft = bodyRef.current.scrollLeft;
+				}}
+			/>
 		</div>
 	);
 }

@@ -40,8 +40,11 @@ export default function TableJoin(props) {
 		{ title: 'title8', dataIndex: 'b', key: 'h' },
 		{ title: 'title9', dataIndex: 'b', key: 'i' },
 		{ title: 'title10', dataIndex: 'b', key: 'j' },
-		{ title: 'title11', dataIndex: 'b', key: 'k', width: 50, fixed: 'right' },
-		{ title: 'title12', dataIndex: 'b', key: 'l', width: 100, fixed: 'right' },
+		{ title: 'title11', dataIndex: 'b', key: 'k' },
+		{ title: 'title12', dataIndex: 'b', key: 'l' },
+		{ title: 'title13', dataIndex: 'b', key: 'o' },
+		{ title: 'title14', dataIndex: 'b', key: 'p', width: 50, fixed: 'right' },
+		{ title: 'title15', dataIndex: 'b', key: 'q', width: 100, fixed: 'right' },
 	]
 
 	const dataSource = [

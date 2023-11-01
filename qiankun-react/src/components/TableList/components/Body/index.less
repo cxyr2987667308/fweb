@@ -1,14 +1,17 @@
 .component-table-list-tbody {
 	width: 100%;
-	height: calc(100% - 80px);
+	flex: 1;
 	overflow: auto scroll;
 
 	table {
 		width: 100%;
 
 		tr {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-			border-color: inherit;
+			&:not(:first-child) {
+				border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+			}
+
+			// border-color: inherit;
 		}
 
 		tbody {

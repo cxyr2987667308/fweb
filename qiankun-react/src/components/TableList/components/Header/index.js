@@ -2,11 +2,11 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-10-31 17:39:55
+ * @Last Modified time: 2023-11-01 14:55:56
  */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import Thead from '../Thead';
+import { getFixStyle } from './../../utils';
 import './index.less';
 
 const prefixCls = 'component-table-list-header';
@@ -26,7 +26,16 @@ export default function Header(props) {
 					<col style={{ width: 32 }} />
 				</colgroup>
 
-				<Thead columns={columns} />
+				<thead className={prefixCls}>
+					<tr>
+						{columns.map((columnsItem, index) => {
+							const { title, fixed } = columnsItem || {};
+
+							return <th key={index} scope="col" style={getFixStyle(fixed, index, columns)}>{title}</th>
+						})}
+						<th />
+					</tr>
+				</thead>
 			</table>
 		</div>
 	);
