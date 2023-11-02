@@ -2,15 +2,15 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-01 14:54:49
+ * @Last Modified time: 2023-11-01 18:04:34
  */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Header from './components/Header';
 import Body from './components/Body';
-import { getCellWidth } from './utils';
+import { getColumnsForFixed } from './utils';
 import './index.less';
 
 const prefixCls = 'component-table-list';
@@ -20,16 +20,14 @@ export default function TableList(props) {
 	const headerRef = useRef(null);
 	const bodyRef = useRef(null);
 	const { columns, dataSource, style, className = '', minCellWidth = 120 } = props;
-	const [cellWidth, setCellWidth] = useState(0);
-	const [bodyWidth, setBodyWidth] = useState(0);
+	const [fixedColumns, setFixedColumns] = useState([]);
 
 	useEffect(() => {
 		const ro = new ResizeObserver((entries, observer) => {
 			for (const entry of entries) {
 				const { height, width } = entry.contentRect;
-				const cellW = getCellWidth(width, minCellWidth, columns?.length); console.log('cellW----', cellW);
-				setCellWidth(cellW);
-				setBodyWidth(cellW * columns?.length);
+				const columnsClone = getColumnsForFixed(width, minCellWidth, columns)
+				setFixedColumns(columnsClone);
 			}
 		});
 		ro.observe(boxRef.current);
@@ -41,16 +39,14 @@ export default function TableList(props) {
 	return (
 		<div className={classnames(prefixCls, className)} style={style} ref={boxRef}>
 			<Header curRef={headerRef}
-				cellWidth={cellWidth}
-				columns={columns}
+				columns={fixedColumns}
 				onScroll={() => {
 					bodyRef.current.scrollLeft = headerRef.current.scrollLeft;
 				}}
 			/>
 
 			<Body curRef={bodyRef}
-				width={bodyWidth}
-				columns={columns}
+				columns={fixedColumns}
 				dataSource={dataSource}
 				onScroll={() => {
 					headerRef.current.scrollLeft = bodyRef.current.scrollLeft;

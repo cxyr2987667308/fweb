@@ -2,7 +2,7 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-01 14:55:56
+ * @Last Modified time: 2023-11-02 17:18:37
  */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ import './index.less';
 const prefixCls = 'component-table-list-header';
 
 export default function Header(props) {
-	const { columns = [], curRef, cellWidth, onScroll } = props;
+	const { columns = [], curRef, onScroll } = props;
 
 	return (
 		<div className={prefixCls} ref={curRef} onScroll={onScroll}>
@@ -21,17 +21,18 @@ export default function Header(props) {
 			>
 				<colgroup>
 					{columns.map((item, i) => {
-						return <col key={i} style={{ width: cellWidth }} />
+						const { width, colWidth } = item;
+						return <col key={i} style={{ width: width || colWidth }} />
 					})}
-					<col style={{ width: 32 }} />
+					<col style={{ width: 32, padding: 0 }} />
 				</colgroup>
 
 				<thead className={prefixCls}>
 					<tr>
 						{columns.map((columnsItem, index) => {
-							const { title, fixed } = columnsItem || {};
+							const { title } = columnsItem || {};
 
-							return <th key={index} scope="col" style={getFixStyle(fixed, index, columns)}>{title}</th>
+							return <th key={index} scope="col" style={getFixStyle(columnsItem, true)}>{title}</th>
 						})}
 						<th />
 					</tr>

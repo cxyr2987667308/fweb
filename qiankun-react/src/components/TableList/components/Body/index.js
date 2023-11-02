@@ -2,26 +2,26 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-10-31 17:38:52
+ * @Last Modified time: 2023-11-02 14:33:52
  */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { getFixStyle } from './../../utils';
 import './index.less';
 
 const prefixCls = 'component-table-list-tbody';
 
 export default function Body(props) {
-	const headerRef = useRef(null);
-	const { columns = [], dataSource = [], curRef, width, onScroll } = props;
+	const { columns = [], dataSource = [], curRef, onScroll } = props;
 
 	return (
 		<div className={prefixCls} ref={curRef} onScroll={onScroll}>
 			<table border="0" cellPadding="0" cellSpacing="0"
-				style={{ width: width, minWidth: '100%', tableLayout: 'fixed' }}
+				style={{ minWidth: '100%', tableLayout: 'fixed' }}
 			>
 				<colgroup>
 					{columns.map((item, i) => {
-						return <col key={i} />
+						return <col key={i} style={{ width: item.width || item.colWidth }} />
 					})}
 				</colgroup>
 
@@ -37,7 +37,7 @@ export default function Body(props) {
 							<tr key={index}>
 								{columns.map((columnsItem, columnsIndex) => {
 									return (
-										<td key={columnsIndex}>
+										<td key={columnsIndex} style={getFixStyle(columnsItem)}>
 											{item[columnsItem?.dataIndex || '']}
 										</td>
 									)
