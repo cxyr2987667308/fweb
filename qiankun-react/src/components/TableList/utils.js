@@ -44,6 +44,8 @@ const getColumnsForFixed = (boxWidth, minCellWidth, columns) => {
   const colWidth = getColWidth(boxWidth, minCellWidth, columns)
   let curFixedLeft = 0;
   let curFixedRight = 0;
+  const arrFixedL = [];
+  const arrFixedR = [];
 
   columnsClone?.forEach((item, index) => {
     if (!item?.width) {
@@ -53,15 +55,24 @@ const getColumnsForFixed = (boxWidth, minCellWidth, columns) => {
     if (item.fixed === 'left') {
       item.fixedWidth = curFixedLeft;
       curFixedLeft = curFixedLeft + (item?.width || item.colWidth);
+      arrFixedL.push(index);
     }
   });
+  if (!!arrFixedL?.length) {
+    columnsClone[arrFixedL.pop()]['isLast'] = true;
+  }
 
-  reverse(columnsClone)?.forEach((item) => {
+  reverse(columnsClone)?.forEach((item, index) => {
     if (item.fixed === 'right') {
       item.fixedWidth = curFixedRight;
       curFixedRight = curFixedRight + (item?.width || item.colWidth);
+      arrFixedR.push(index);
     }
-  })
+  });
+
+  if (!!arrFixedR?.length) {
+    columnsClone[arrFixedR.pop()]['isLast'] = true;
+  }
 
   console.log('columnsClone----', columnsClone);
   return reverse(columnsClone);

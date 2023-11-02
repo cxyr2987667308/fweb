@@ -15,7 +15,7 @@
 			position: relative;
 			padding: 0 24px;
 			white-space: normal;
-			overflow: hidden;
+			// overflow: hidden;
 			text-overflow: ellipsis;
 			word-wrap: break-word;
 			word-break: break-all;
@@ -25,6 +25,37 @@
 
 			&:not(:last-child):not(:nth-last-child(2)) {
 				border-right: 1px solid rgba(0, 0, 0, 0.05);
+			}
+
+			&.isLeftLast {
+				&::after {
+					position: absolute;
+					top: 0;
+					right: -1px;
+					bottom: -1px;
+					width: 20px;
+					transform: translateX(100%);
+					transition: box-shadow 0.3s;
+					content: '';
+					pointer-events: none;
+					box-shadow: inset 10px 0 8px -8px green;
+				}
+			}
+
+			&.isRightFirst {
+				&::before {
+					position: absolute;
+					top: 0;
+					bottom: -1px;
+					left: -1px;
+					width: 20px;
+					transform: translateX(-100%);
+					transition: box-shadow 0.3s;
+					content: '';
+					pointer-events: none;
+					border-right: 1px solid rgba(0, 0, 0, 0.05);
+					box-shadow: inset -10px 0 8px -8px green;
+				}
 			}
 		}
 	}

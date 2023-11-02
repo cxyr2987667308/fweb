@@ -2,10 +2,11 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-02 17:18:37
+ * @Last Modified time: 2023-11-02 17:51:26
  */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { getFixStyle } from './../../utils';
 import './index.less';
 
@@ -30,9 +31,16 @@ export default function Header(props) {
 				<thead className={prefixCls}>
 					<tr>
 						{columns.map((columnsItem, index) => {
-							const { title } = columnsItem || {};
+							const { title, isLast, fixed } = columnsItem || {};
+							const isLeftLast = !!isLast && fixed === 'left';
+							const isRightFirst = !!isLast && fixed === 'right';
+							const classnames = classNames({ isLeftLast: isLeftLast, isRightFirst: isRightFirst });
 
-							return <th key={index} scope="col" style={getFixStyle(columnsItem, true)}>{title}</th>
+							return (
+								<th key={index} scope="col" className={classnames} style={getFixStyle(columnsItem, true)}>
+									{title}
+								</th>
+							)
 						})}
 						<th />
 					</tr>
