@@ -2,10 +2,11 @@
  * @Author: lj.fang
  * @Date: 2021-07-02 11:54:10
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-02 14:33:52
+ * @Last Modified time: 2023-11-02 18:29:19
  */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { getFixStyle } from './../../utils';
 import './index.less';
 
@@ -36,8 +37,12 @@ export default function Body(props) {
 						return (
 							<tr key={index}>
 								{columns.map((columnsItem, columnsIndex) => {
+									const { title, isLast, fixed } = columnsItem || {};
+									const isLeftLast = !!isLast && fixed === 'left';
+									const isRightFirst = !!isLast && fixed === 'right';
+									const classnames = classNames({ isLeftLast: isLeftLast, isRightFirst: isRightFirst });
 									return (
-										<td key={columnsIndex} style={getFixStyle(columnsItem)}>
+										<td key={columnsIndex} className={classnames} style={getFixStyle(columnsItem)}>
 											{item[columnsItem?.dataIndex || '']}
 										</td>
 									)

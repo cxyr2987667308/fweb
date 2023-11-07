@@ -32,7 +32,7 @@ const getFixStyle = (curItem, isHeader = false) => {
   if (fixed === 'right') {
     return {
       ...style,
-      right: isHeader ? fixedWidth + 18 : fixedWidth,
+      right: isHeader ? fixedWidth + 17 : fixedWidth,
     }
   }
 
