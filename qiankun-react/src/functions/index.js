@@ -15,6 +15,7 @@ import PromiseDemo from './promise-demo';
 import MockInfo from './mock-info';
 import TableJoin from './table-join';
 import TestTable from './test-table';
+import TestUnity from './test-unity';
 
 export {
 	ListTree,
@@ -27,4 +28,5 @@ export {
 	MockInfo,
 	TableJoin,
 	TestTable,
+	TestUnity
 };

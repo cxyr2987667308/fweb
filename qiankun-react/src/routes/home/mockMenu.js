@@ -35,6 +35,9 @@ const mockMenu = [{
 }, {
 	name: '表格 Table',
 	dataType: 'test-table'
+}, {
+	name: '测试unity3d',
+	dataType: 'test-unity'
 }];
 
 export default mockMenu;
