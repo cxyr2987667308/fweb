@@ -13,7 +13,7 @@ const mockMenu = [{
 	dataType: 'table-join'
 }, {
 	name: 'js生成截图',
-	dataType: 'Html2canvas'
+	dataType: 'TestSnapshot'
 }, {
 	name: '汉语拼音',
 	dataType: 'pin-yin'

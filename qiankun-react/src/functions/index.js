@@ -6,7 +6,7 @@
  * @Description:
  */
 import ListTree from './list-tree';
-import Html2canvas from './html2canvas';
+import TestSnapshot from './test-snapshot';
 import PinYin from './pin-yin';
 import ColorSelect from './color-select';
 import ApiEditor from './api-editor';
@@ -19,7 +19,7 @@ import TestUnity from './test-unity';
 
 export {
 	ListTree,
-	Html2canvas,
+	TestSnapshot,
 	PinYin,
 	ColorSelect,
 	ApiEditor,
