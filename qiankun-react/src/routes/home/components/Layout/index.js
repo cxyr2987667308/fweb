@@ -4,7 +4,7 @@
  * @Author: fan.li@zuolin.com
  * @Date: 2019-08-27 16:49:03
  * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-10 18:29:57
+ * @Last Modified time: 2023-11-13 10:52:56
  */
 
 import React, { useEffect, useState } from 'react';
@@ -40,7 +40,7 @@ export default function Layout(props) {
 						}}
 					/>
 					<div className='weather'>
-						{data?.city || ''} {data?.weather || ''} {data?.temperature || ''}℃
+						{data?.city || ''}
 						{forecasts?.map((item, index) => {
 							if (index > 1) {
 								return null;
