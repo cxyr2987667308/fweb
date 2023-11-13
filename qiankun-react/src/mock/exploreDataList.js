@@ -1,10 +1,3 @@
-/*
- * @Author: colin
- * @Date: 2022-04-01 16:43:08
- * @LastEditTime: 2022-04-02 18:20:25
- * @LastEditors: fanglijiao
- * @Description: 获取订单详情mock数据
- */
 module.exports = {
 	version: '1.0.0',
 	errorCode: 200,
