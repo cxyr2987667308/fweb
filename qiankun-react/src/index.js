@@ -4,8 +4,12 @@ import App from './App';
 
 let root;
 
+if (process.env.REACT_APP_MOCK === 'true') {
+  require('./mock');
+}
+
 // 将render方法用函数定义，供后续主应用与独立运行调用
-function render (props) {
+function render(props) {
   const { container } = props; console.log('container---', container);
   const dom = container ? container.querySelector('#appRoot') : document.getElementById('appRoot');
   root = createRoot(dom);
@@ -15,7 +19,7 @@ function render (props) {
 }
 
 // 判断是否在qiankun环境下，非qiankun环境下独立运行
-if(!(window).__POWERED_BY_QIANKUN__){
+if (!(window).__POWERED_BY_QIANKUN__) {
   render({});
 }
 
