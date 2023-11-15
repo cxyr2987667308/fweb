@@ -1,5 +1,5 @@
 import React, { useState, lazy } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.less'
 // import Home from './routes/home';
 const Home = lazy(() => import('./routes/home'));
@@ -11,11 +11,11 @@ function App() {
   return (
     <Router basename={window.__POWERED_BY_QIANKUN__ ? '/react' : '/'}>
       <div>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route path="/home" component={Home} />
-          <Route path="/" component={Home} />
-        </Switch>
+        <Routes>
+          <Route path="/login" exact={true} element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     </Router>
   )
