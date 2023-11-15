@@ -1,0 +1,72 @@
+.home {
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    background: #f5f6f7;
+
+    &-menu {
+        width: 220px;
+        padding: 12px 0;
+        background: #fff;
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            width: 220px;
+        }
+
+        &.isOpen {
+            width: 220px;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+
+            li {
+                padding: 8px 32px;
+                border-right: 2px solid #fbfbfb;
+
+                a {
+                    color: rgba(0, 0, 0, 0.85);
+                }
+
+                &.isActive{
+                    background: #e6f7ff;
+                    border-color: #1890ff;
+
+                    a {
+                        color: #1890ff;
+                    }
+                }
+            }
+        }
+    }
+
+    &-info{
+        position: relative;
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+
+        &-btn{
+            padding: 20px 20px 0 0;
+            text-align: right;
+        }
+
+        &-main{
+            overflow: auto;
+            flex: 1;
+
+            .fl-table-join {
+                .data-app-schema-join-table-cardTree-tableItem.isNull .info {
+                    border-image: url('./../../components/CardTree/images/line.png') 1 .85714286 round;
+                }
+            }
+        }
+    }
+}

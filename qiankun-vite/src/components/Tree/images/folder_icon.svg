@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>folder_icon</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-8.000000, -14.000000)" fill-rule="nonzero">
+            <g id="folder_icon" transform="translate(8.000000, 14.000000)">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M12.8462414,14 L2,14 L2.06871979,3 L8.90198556,3 L11.071012,5.15092308 L14,5.15092308 L14,14 L12.8462414,14 Z M3,13 L13,13 L13,6 L3,6 L3,13 Z M9.3637085,5 L8.35528564,4 L3,4 L3,5 L9.3637085,5 Z" id="形状" fill="#333333"></path>
+            </g>
+        </g>
+    </g>
+</svg>

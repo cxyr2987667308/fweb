@@ -1,0 +1,75 @@
+.component-color-picker {
+	position: relative;
+
+	&-color {
+		display: flex;
+		overflow: hidden;
+		width: 140px;
+		height: 32px;
+		padding: 6px;
+		background: #f0f0f0;
+		border: 1px solid rgba(0,0,0,0.15);
+		border-radius: 2px;
+		div {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&-picker {
+		position: absolute;
+		z-index: 1;
+
+		&.bottom {
+			top: 32px;
+		}
+
+		&.top {
+			bottom: 32px;
+		}
+
+		.cover {
+			position: fixed;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+		}
+	}
+
+	.sketch-picker {
+		& > div {
+			&:nth-child(2) {
+				& > div {
+					&:first-child {
+						& > div {
+							&:first-child {
+								height: 23px !important;
+
+								.hue-horizontal {
+									> div {
+										&:last-child {
+											> div {
+												height: 21px !important;
+											}
+										}
+									}
+								}
+							}
+							&:last-child {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			&:nth-child(3) {
+				& > div {
+					&:last-child{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

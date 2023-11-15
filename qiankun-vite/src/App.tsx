@@ -1,35 +1,23 @@
-import { useState } from 'react';
-import { Button } from 'antd';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import React, { useState, lazy } from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.less'
+// import Home from './routes/home';
+const Home = lazy(() => import('./routes/home'));
+const Login = lazy(() => import('./routes/login'));
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <Router basename={window.__POWERED_BY_QIANKUN__ ? '/react' : '/'}>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route path="/home" component={Home} />
+          <Route path="/" component={Home} />
+        </Switch>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button type="primary" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 
