@@ -1,8 +1,8 @@
 import React, { PureComponent, Component } from 'react';
 import { fetchApi } from 'utils';
-import { withRouter } from 'react-router-dom';
-import { Form } from '@ant-design/compatible';
-import { Button, Row, Input, Spin } from 'antd';
+import { withRouter } from 'components';
+// import { Form } from '@ant-design/compatible';
+import { Button, Row, Input, Spin, Form } from 'antd';
 import sha256 from 'sha256';
 const FormItem = Form.Item;
 
@@ -10,7 +10,7 @@ const FormItem = Form.Item;
 class LoginForm extends (PureComponent || Component) {
 	state = { loading: false, namespaceId: null }
 
-	render () {
+	render() {
 		const prefixCls = 'loginform';
 		const { form, loading, loginLogoUrl } = this.props;
 		return (
@@ -22,23 +22,16 @@ class LoginForm extends (PureComponent || Component) {
 						{/* eslint-enable */}
 					</div>
 					<Form>
-						<FormItem hasFeedback>
-							{form.getFieldDecorator('username', {
-								rules: [{ required: true, message: '请输入正确的用户名' }]
-							})(<Input size="default" onPressEnter={this.handleOk} placeholder="用户名" />)}
+						<FormItem name="username" rules={[{ required: true, message: '请输入正确的用户名' }]}>
+							<Input size="default" onPressEnter={this.handleOk} placeholder="用户名" />
 						</FormItem>
 
-						<FormItem hasFeedback>
-							{form.getFieldDecorator('namespaceId', {
-								rules: [{ required: true, message: '请输入域空间' }]
-							})(<Input size="default" onPressEnter={this.handleOk} placeholder="域空间" />)}
+						<FormItem name="username" rules={[{ required: true, message: '请输入域空间' }]}>
+							<Input size="default" onPressEnter={this.handleOk} placeholder="域空间" />
 						</FormItem>
 
-						<FormItem hasFeedback>
-							{form.getFieldDecorator('password', {
-								rules: [{ required: true, message: '请输入密码' }
-								]
-							})(<Input size="default" type="password" onPressEnter={this.handleOk} placeholder="密码" />)}
+						<FormItem name="password" rules={[{ required: true, message: '请输入密码' }]}>
+							<Input size="default" type="password" onPressEnter={this.handleOk} placeholder="密码" />
 						</FormItem>
 
 						<Row>
@@ -113,4 +106,4 @@ class LoginForm extends (PureComponent || Component) {
 	}
 }
 
-export default withRouter(Form.create()(LoginForm));
+export default withRouter(LoginForm);

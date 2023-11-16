@@ -2,8 +2,9 @@ import React from 'react'
 import * as ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd'
 import packageJson from './../package.json';
-import App from './App.tsx'
-import './index.css'
+import App from './App.tsx';
+import 'antd/dist/reset.css';
+import './index.css';
 
 const prefixCls = packageJson.antdConfig.prefixCls;
 
