@@ -85,7 +85,8 @@ class Home extends React.Component {
 								<li key={dataType} className={dataType === pathname.split('/')[1] ? 'isActive' : ''}>
 									<a onClick={() => {
 										this.setState({ isDescription: false });
-										this.props.history.replace(`/${dataType}`);
+										this.props.navigate(`/${dataType}`, { replace: true })
+										// this.props.navigate.replace(`/${dataType}`);
 									}}>{name}</a>
 								</li>
 							);
@@ -96,8 +97,9 @@ class Home extends React.Component {
 					<div className={`${prefixCls}-info-main`}>
 						<Routes>
 							{(routes || []).map(({ key, component: Component, }) => {
+								console.log('key---', key);
 								return (
-									<Route key={key} path={`/${key}`} component={Component} />
+									<Route key={key} path={`${key}`} element={<Component />} />
 								);
 							})}
 						</Routes>

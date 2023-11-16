@@ -19,11 +19,3 @@ root.render(
     </ConfigProvider>
   </React.StrictMode>
 );
-
-// ReactDOM.createRoot(document.getElementById('root')!).render(
-//   <React.StrictMode>
-//     <ConfigProvider prefixCls={prefixCls}>
-//       <App />
-//     </ConfigProvider>
-//   </React.StrictMode>,
-// )
