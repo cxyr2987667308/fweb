@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import MarkedPreview from 'vite-plugin-doc-preview';
 import path from 'path';
 import packageJson from './package.json';
+import { proxy as targetPath } from './.start.json';
 
 const resolve = dir => path.resolve(__dirname, dir);
 
@@ -23,11 +24,6 @@ export default defineConfig({
       components: resolve('src/components'),
     }
   },
-  esbuild: {
-    loader: 'jsx',
-    include: /src\/.*\.js?$/,
-    exclude: []
-  },
   css: {
     preprocessorOptions: {
       less: {
@@ -45,4 +41,29 @@ export default defineConfig({
       module: true
     }
   },
+  esbuild: {
+    loader: 'jsx',
+    include: /src\/.*\.js?$/,
+    exclude: []
+  },
+  server: {
+    host: 'localhost',
+    port: 8082,
+    open: true,
+    strictPort: false,
+    https: false,
+    cors: true,
+    proxy: {
+      '/evh': {
+        target: targetPath,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/evh/, '')
+      },
+      '/api': {
+        target: targetPath,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
 })
