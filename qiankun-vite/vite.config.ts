@@ -1,18 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
-import packageJson from './package.json'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import MarkedPreview from 'vite-plugin-doc-preview';
+import path from 'path';
+import packageJson from './package.json';
 
 const resolve = dir => path.resolve(__dirname, dir);
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [react({
-    babel: {
-      plugins: ['@babel/plugin-transform-react-jsx'],
-    }
-  })],
+  plugins: [
+    react({
+      babel: {
+        plugins: ['@babel/plugin-transform-react-jsx'],
+      },
+    }),
+    MarkedPreview({ mode: 'react' })
+  ],
   resolve: {
     alias: {
       utils: resolve('src/utils'),

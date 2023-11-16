@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import classnames from 'classnames';
 import mockMenu from './mockMenu';
+import { withRouter } from 'components';
 import { convert, getUrlQuery } from './utils';
 import { fetchApi } from 'utils';
 import Layout from './components/Layout';
@@ -93,13 +94,13 @@ class Home extends React.Component {
 				</div>
 				<div className={`${prefixCls}-info ${isDescription ? 'isDescription' : ''}`}>
 					<div className={`${prefixCls}-info-main`}>
-						<Switch>
+						<Routes>
 							{(routes || []).map(({ key, component: Component, }) => {
 								return (
 									<Route key={key} path={`/${key}`} component={Component} />
 								);
 							})}
-						</Switch>
+						</Routes>
 					</div>
 				</div>
 			</Layout>
@@ -107,4 +108,4 @@ class Home extends React.Component {
 	}
 }
 
-export default Home;
+export default withRouter(Home);
