@@ -6,6 +6,7 @@ import packageJson from './package.json';
 import { proxy as targetPath } from './.start.json';
 
 const resolve = dir => path.resolve(__dirname, dir);
+console.log('targetPath', targetPath);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -47,22 +48,23 @@ export default defineConfig({
     exclude: []
   },
   server: {
-    host: 'localhost',
+    // host: 'localhost',
+    host: true,
     port: 8082,
     open: true,
     strictPort: false,
     https: false,
-    cors: true,
+    // cors: true,
     proxy: {
       '/evh': {
         target: targetPath,
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/evh/, '')
+        // rewrite: (path) => path.replace(/^\/evh/, '')
       },
       '/api': {
         target: targetPath,
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        // rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   }
