@@ -2,7 +2,7 @@ import React from 'react'
 import * as ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd'
 import packageJson from './../package.json';
-import App from './App.tsx';
+import App from './App.js';
 import 'antd/dist/reset.css';
 import './index.css';
 
