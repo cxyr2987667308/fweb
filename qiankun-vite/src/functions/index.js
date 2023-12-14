@@ -9,6 +9,7 @@ import MockInfo from './mock-info';
 import TableJoin from './table-join';
 import TestTable from './test-table';
 import TestUnity from './test-unity';
+import MixBlendMode from './mix-blend-mode';
 
 export {
 	ListTree,
@@ -21,5 +22,6 @@ export {
 	MockInfo,
 	TableJoin,
 	TestTable,
-	TestUnity
+	TestUnity,
+	MixBlendMode
 };

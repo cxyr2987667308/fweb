@@ -31,6 +31,9 @@ const mockMenu = [{
 }, {
 	name: '测试unity3d',
 	dataType: 'test-unity'
+}, {
+	name: '滤色模式的特性',
+	dataType: 'mix-blend-mode'
 }];
 
 export default mockMenu;
