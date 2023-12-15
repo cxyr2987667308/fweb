@@ -9,6 +9,27 @@ import video1 from './images/fire.mp4';
 import video2 from './images/rains-s.mp4';
 
 const prefixCls = 'mix-blend-mode';
+const mixBlendModeEnum = new Map([
+	['normal', '正常'],
+	['multiply', '正片叠底'],
+	['screen', '滤色'],
+	['overlay', '叠加'],
+	['darken', '变暗'],
+	['lighten', '变亮'],
+	['color-dodge', '颜色减淡'],
+	['color-burn', '颜色加深'],
+	['hard-light', '强光'],
+	['soft-light', '柔光'],
+	['difference', '差值'],
+	['exclusion', '排除'],
+	['hue', '色相'],
+	['saturation', '饱和度'],
+	['color', '颜色'],
+	['luminosity', '亮度'],
+	['initial', '初始'],
+	['inherit', '继承'],
+	['unset', '复原'],
+]);
 export default function MixBlendMode(props) {
 	const arr = [{
 		type: 'img',
@@ -30,14 +51,15 @@ export default function MixBlendMode(props) {
 		url: video2
 	}, {
 		type: 'text',
-		text: '文字特效'
+		text: '文字特效',
 	}]
 
-	const getComp = ({ type, url, text }) => {
+	const getComp = ({ type, url, text, mixBlendMode }) => {
+		const myStyle = { mixBlendMode };
 		if (type === 'text') {
 			return (
 				<div className='text'>
-					<h1>{text}</h1>
+					<h1 style={myStyle}>{text}</h1>
 				</div>
 			)
 		}
@@ -45,17 +67,18 @@ export default function MixBlendMode(props) {
 		if (type === 'video') {
 			return (
 				<div>
-					<video
+					<video style={myStyle}
 						autoPlay
 						loop
 						muted
 						// controls
-						src={url} />
+						src={url}
+					/>
 				</div>
 			)
 		}
 
-		return <div><img src={url} /></div>
+		return <div><img src={url} style={myStyle} /></div>
 	}
 
 	return (
@@ -81,14 +104,18 @@ export default function MixBlendMode(props) {
 			</div>
 
 			<div className={prefixCls + '-result'}>
-				<dl>
-					<dt>加了效果前景图后的效果</dt>
-					<dd>
-						{arr?.map((item) => {
-							return getComp(item);
-						})}
-					</dd>
-				</dl>
+				{[...mixBlendModeEnum]?.map(itemMode => {
+					return (
+						<dl>
+							<dt>mix-blend-mode: {itemMode?.[0]} {itemMode?.[1]}</dt>
+							<dd>
+								{arr?.map((item) => {
+									return getComp({ ...item, mixBlendMode: itemMode?.[0] });
+								})}
+							</dd>
+						</dl>
+					)
+				})}
 			</div>
 		</div >
 	);
