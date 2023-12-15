@@ -33,7 +33,10 @@ const mockMenu = [{
 	dataType: 'test-unity'
 }, {
 	name: '滤色模式的特性',
-	dataType: 'mix-blend-mode'
+	dataType: 'color-filter'
+}, {
+	name: '图片或文字滤色模式的特性',
+	dataType: 'color-filter-for-pic-and-text'
 }];
 
 export default mockMenu;

@@ -9,7 +9,8 @@ import MockInfo from './mock-info';
 import TableJoin from './table-join';
 import TestTable from './test-table';
 import TestUnity from './test-unity';
-import MixBlendMode from './mix-blend-mode';
+import ColorFilter from './color-filter';
+import ColorFilterForPicAndText from './color-filter-for-pic-and-text';
 
 export {
 	ListTree,
@@ -23,5 +24,6 @@ export {
 	TableJoin,
 	TestTable,
 	TestUnity,
-	MixBlendMode
+	ColorFilter,
+	ColorFilterForPicAndText
 };
