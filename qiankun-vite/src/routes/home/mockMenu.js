@@ -37,6 +37,9 @@ const mockMenu = [{
 }, {
 	name: '图片或文字滤色模式的特性',
 	dataType: 'color-filter-for-pic-and-text'
+}, {
+	name: '测试css滤色特效',
+	dataType: 'color-filter-test'
 }];
 
 export default mockMenu;

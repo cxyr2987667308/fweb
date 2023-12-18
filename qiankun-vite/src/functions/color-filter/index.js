@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './index.less';
-import YuanTu from './images/landscape-s.jpg';
 
 import { colorList } from './enum';
 
