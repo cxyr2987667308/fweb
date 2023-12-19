@@ -12,6 +12,16 @@ export default function ColorFilterTest() {
 			<div className={prefixCls + '-list'}>
 				<div className='list-item'>
 					<dl>
+						<dt>文字和图片混合结果</dt>
+						<dd className='effect'>
+							<img src={pic1} />
+							<h1>文字效果</h1>
+						</dd>
+					</dl>
+				</div>
+
+				<div className='list-item'>
+					<dl>
 						<dt>背景图</dt>
 						<dd><img src={pic1} /></dd>
 					</dl>
