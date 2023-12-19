@@ -1,10 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-11-18 12:26:51
- * @LastEditTime: 2023-07-03 10:56:12
- * @LastEditors: liF
- * @Description:
- */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, message, Space, Spin } from 'antd';
@@ -28,7 +21,7 @@ ApiEditor.propTypes = {
 
 ApiEditor.defaultProps = {
 	readOnly: false,
-	onChange: () => {}
+	onChange: () => { }
 };
 
 export default function ApiEditor(props) {

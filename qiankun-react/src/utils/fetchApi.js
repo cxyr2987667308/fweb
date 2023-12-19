@@ -1,10 +1,3 @@
-/*
- * @Author: fanglijiao
- * @Date: 2021-12-15 16:58:20
- * @LastEditors: liF
- * @LastEditTime: 2022-12-05 18:30:02
- * @Description:
- */
 import baseFetchApi from 'ehome-utils/lib/fetchApi';
 import { message } from 'antd';
 

@@ -1,12 +1,3 @@
-/*
- * 用于详情页的字段展示
- *
- * @Author: fan.li@zuolin.com
- * @Date: 2019-08-27 16:49:03
- * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-13 10:52:56
- */
-
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';

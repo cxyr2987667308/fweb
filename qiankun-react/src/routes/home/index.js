@@ -1,11 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2022-12-13 10:14:16
- * @LastEditors: liF
- * @Description:
- */
-/*** examples/src/app.js ***/
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import classnames from 'classnames';
@@ -17,7 +9,7 @@ import * as exportModules from './../../functions'; // 组件源代码
 import './index.less';
 
 class Home extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 
 		const {
@@ -47,72 +39,72 @@ class Home extends React.Component {
 		};
 	}
 
-	componentWillMount () {
+	componentWillMount() {
 		window.$$context = getUrlQuery(window.location.search);
 	}
 
-  getModules = modules => {
-  	const routes = [];
-  	const loop = modules => {
-  		try {
-  			return modules.map(({ dataType, dtos = [] }) => {
-  				if (!dtos.length) {
-  					return routes.push({
-  						key: `${dataType}`,
-  						component: exportModules[`${convert(dataType)}`]
-  					});
-  				}
-  				return loop(dtos);
-  			});
-  		} catch (error) {
-  			console.warn(error);
-  		}
-  	};
+	getModules = modules => {
+		const routes = [];
+		const loop = modules => {
+			try {
+				return modules.map(({ dataType, dtos = [] }) => {
+					if (!dtos.length) {
+						return routes.push({
+							key: `${dataType}`,
+							component: exportModules[`${convert(dataType)}`]
+						});
+					}
+					return loop(dtos);
+				});
+			} catch (error) {
+				console.warn(error);
+			}
+		};
 
-  	loop(modules);
+		loop(modules);
 
-  	return routes;
-  };
+		return routes;
+	};
 
-  render () {
-    	const prefixCls = 'home';
-    	const { location: { pathname } } = this.props;
-    	const routes = this.getModules(mockMenu);
-    	const { isDescription, datasetId, isOpen } = this.state;
+	render() {
+		const prefixCls = 'home';
+		const { location: { pathname } } = this.props;
+		const routes = this.getModules(mockMenu);
+		const { isDescription, datasetId, isOpen } = this.state;
 
-    	return (
-  		<Layout>
-    			<div className={classnames(
-  				`${prefixCls}-menu`,
-  				{ isOpen: isOpen }
-  			)}>
-    				<ul>
-    					{(mockMenu || []).map(({ name, dataType }) => {
-    						return (
-    							<li key={dataType} className={dataType === pathname.split('/')[1] ? 'isActive' : ''}>
-    								<a onClick={() => {
-    									this.setState({ isDescription: false });
-											this.props.history.replace(`/${dataType}`);
-    								}}>{name}</a>
-    							</li>
-    						);
-    					})}
-    				</ul>
-    			</div>
-    			<div className={`${prefixCls}-info ${isDescription ? 'isDescription' : ''}`}>
-    				<div className={`${prefixCls}-info-main`}>
-    					<Switch>
-    						{(routes || []).map(({ key, component: Component, }) => {
-    							return (
-    								<Route key={key} path={`/${key}`} component={Component} />
-    							);
-    						})}
-    					</Switch>
-    				</div>
-    			</div>
-    		</Layout>
-    	);
-  }
+		return (
+			<Layout>
+				<div className={classnames(
+					`${prefixCls}-menu`,
+					{ isOpen: isOpen }
+				)}>
+					<ul>
+						{(mockMenu || []).map(({ name, dataType }) => {
+							return (
+								<li key={dataType} className={dataType === pathname.split('/')[1] ? 'isActive' : ''}>
+									<a onClick={() => {
+										this.setState({ isDescription: false });
+										this.props.history.replace(`/${dataType}`);
+									}}>{name}</a>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+				<div className={`${prefixCls}-info ${isDescription ? 'isDescription' : ''}`}>
+					<div className={`${prefixCls}-info-main`}>
+						<Switch>
+							{(routes || []).map(({ key, component: Component, }) => {
+								return (
+									<Route key={key} path={`/${key}`} component={Component} />
+								);
+							})}
+						</Switch>
+					</div>
+				</div>
+			</Layout>
+		);
+	}
 }
 
 export default Home;

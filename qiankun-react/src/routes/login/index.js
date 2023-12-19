@@ -1,10 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2022-12-09 12:06:42
- * @LastEditors: liF
- * @Description:
- */
 import React, { Component, PureComponent } from 'react';
 import Animate from 'rc-animate';
 import LoginForm from './form';
@@ -24,7 +17,7 @@ class Login extends (PureComponent || Component) {
 		logoData: {}
 	}
 
-	componentWillMount () {
+	componentWillMount() {
 		this.getLogo();
 	}
 
@@ -35,7 +28,7 @@ class Login extends (PureComponent || Component) {
 			prefix: 'evh',
 			api: '/domain/getDomainInfoByNamespace',
 			ignoreMerchantId: true,
-			data: { },
+			data: {},
 			success: (data = {}) => {
 				this.setState({
 					logoData: {
@@ -55,7 +48,7 @@ class Login extends (PureComponent || Component) {
 		});
 	}
 
-	render () {
+	render() {
 		const prefixCls = 'login';
 		const { logoData, loading } = this.state;
 		return (

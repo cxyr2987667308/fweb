@@ -1,10 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-10-19 11:05:57
- * @LastEditTime: 2023-06-29 18:06:53
- * @LastEditors: liF
- * @Description:
- */
 import ListTree from './list-tree';
 import TestSnapshot from './test-snapshot';
 import PinYin from './pin-yin';
@@ -16,6 +9,9 @@ import MockInfo from './mock-info';
 import TableJoin from './table-join';
 import TestTable from './test-table';
 import TestUnity from './test-unity';
+import ColorFilter from './color-filter';
+import ColorFilterForPicAndText from './color-filter-for-pic-and-text';
+import ColorFilterTest from './color-filter-test';
 
 export {
 	ListTree,
@@ -28,5 +24,8 @@ export {
 	MockInfo,
 	TableJoin,
 	TestTable,
-	TestUnity
+	TestUnity,
+	ColorFilter,
+	ColorFilterForPicAndText,
+	ColorFilterTest
 };

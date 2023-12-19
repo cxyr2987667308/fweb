@@ -1,9 +1,3 @@
-/*
- * @Author: liF
- * @Date: 2023-01-12 16:54:28
- * @LastEditors: liF
- * @LastEditTime: 2023-01-17 16:47:16
- */
 const Status = {
   PENDING: 'pending',
   FULFILLED: 'fulfilled',
@@ -19,8 +13,8 @@ class MYPromise {
     this.onRejectedCallbacks = [];
 
     let toThrow = reason => {
-      if(!this.onRejectedCallbacks?.length){
-        throw(reason);
+      if (!this.onRejectedCallbacks?.length) {
+        throw (reason);
       } else {
         this.onRejectedCallbacks.forEach(callback => {
           callback(reason);
@@ -30,9 +24,9 @@ class MYPromise {
     }
 
     const resolve = value => {
-      if(this.status === Status.PENDING) {
-        if(value instanceof MYPromise){
-          if(v === this){
+      if (this.status === Status.PENDING) {
+        if (value instanceof MYPromise) {
+          if (v === this) {
             toThrow('不能返回自身');
           }
           queueMicrotask(() => {
@@ -53,9 +47,9 @@ class MYPromise {
     }
 
     const reject = reason => {
-      if(this.status === Status.PENDING){
-        if(reason instanceof MYPromise){
-          if(reason === this){
+      if (this.status === Status.PENDING) {
+        if (reason instanceof MYPromise) {
+          if (reason === this) {
             toThrow('不能返回自身');
           }
           queueMicrotask(() => {
@@ -96,7 +90,7 @@ class MYPromise {
         }
       })
     }
-    switch(this.status) {
+    switch (this.status) {
       // 构造函数是同步
       case Status.FULFILLED: {
         const promise2 = new MYPromise((res, rej) => {
@@ -127,12 +121,12 @@ class MYPromise {
         return promise2;
       }
     }
-  } 
+  }
   catch(onRejected) {
     return this.then(null, onRejected);
   }
 
-  static resolve (value) {
+  static resolve(value) {
     if (value instanceof MYPromise) return value;
     return new MYPromise((res, rej) => {
       res(value);
@@ -151,7 +145,7 @@ class MYPromise {
       if (promiseList?.length === 0) {
         resOfAll();
       } else {
-        for(let index = 0; index < promiseList.length; index++) {
+        for (let index = 0; index < promiseList.length; index++) {
           const element = promiseList[index];
           MYPromise.resolve(element).then(res => {
             result.push(res);

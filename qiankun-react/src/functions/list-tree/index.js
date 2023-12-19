@@ -1,9 +1,3 @@
-/*
- * @Author: liF
- * @Date: 2022-09-19 15:04:17
- * @LastEditors: liF
- * @LastEditTime: 2023-06-29 17:30:27
- */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import { Tree } from 'components';
@@ -14,7 +8,7 @@ import './index.less';
 let datasetData = [];
 let listAllData = [];
 const ListTree = () => {
-    const [state, setState] = useState({
+	const [state, setState] = useState({
 		searchValue: '',
 		loading: false,
 		treeLoading: false,
@@ -100,7 +94,7 @@ const ListTree = () => {
 			data: {
 				namespaceId: 11
 			},
-			success: ({customerTreeList = [], standardTreeList=[]}) => {
+			success: ({ customerTreeList = [], standardTreeList = [] }) => {
 				const myArr = [
 					{
 						childList: customerTreeList,
@@ -162,7 +156,7 @@ const ListTree = () => {
 	};
 
 	const onChange = () => {
-		
+
 	}
 
 	return (
@@ -176,7 +170,7 @@ const ListTree = () => {
 				treeData={treeData}
 				activeItem={activeItem}
 				more={{
-					toRename: () => {},
+					toRename: () => { },
 					toMove: targetItem => updateState({ visibleMove: true, targetItem }),
 					toDelete: targetItem => toDelete(targetItem),
 					addFolder: () => updateState({ visibleAddFolder: true }),
@@ -185,7 +179,7 @@ const ListTree = () => {
 			/>
 
 			<div className='fl-list-tree-main'>
-				当前点击项为: 
+				当前点击项为:
 				<div>{activeItem.nodeName || '暂无'}</div>
 			</div>
 		</div>

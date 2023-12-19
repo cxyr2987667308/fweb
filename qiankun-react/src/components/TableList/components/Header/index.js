@@ -1,9 +1,3 @@
-/*
- * @Author: lj.fang
- * @Date: 2021-07-02 11:54:10
- * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-02 17:51:26
- */
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

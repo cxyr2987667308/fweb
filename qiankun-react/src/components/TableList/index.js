@@ -1,9 +1,3 @@
-/*
- * @Author: lj.fang
- * @Date: 2021-07-02 11:54:10
- * @Last Modified by: lj.fang
- * @Last Modified time: 2023-11-01 18:04:34
- */
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 import PropTypes from 'prop-types';

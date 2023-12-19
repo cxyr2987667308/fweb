@@ -1,0 +1,48 @@
+.color-filter {
+  width: 100%;
+  height: 100%;
+
+
+
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    padding: 32px;
+    background-color: #f1f1f1;
+  }
+
+  dl {
+    width: 25%;
+    margin-bottom: 32px;
+
+    dt {
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    dd {
+      width: 100%;
+      height: 90px;
+      position: relative;
+
+      .bgColor {
+        position: absolute;
+        top: 0;
+        left: 55px;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+      }
+
+      .foreColor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

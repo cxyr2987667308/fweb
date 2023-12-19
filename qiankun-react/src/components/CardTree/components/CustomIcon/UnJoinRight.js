@@ -1,11 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-08-30 18:16:29
- * @LastEditTime: 2021-08-31 15:19:34
- * @LastEditors: 方丽娇
- * @Description:
- * 可以输入预定的版权声明、个性签名、空行等
- */
 import React from 'react';
 import Icon from '@ant-design/icons';
 

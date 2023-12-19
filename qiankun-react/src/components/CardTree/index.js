@@ -1,10 +1,3 @@
-/*
- * @Author: fanglijiao
- * @Date: 2021-08-04 15:45:29
- * @Last Modified by: fanglijiao
- * @Last Modified time: 2021-08-20 16:32:27
- */
-
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Empty } from 'antd';

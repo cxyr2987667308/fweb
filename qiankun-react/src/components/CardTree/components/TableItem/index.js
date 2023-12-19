@@ -1,10 +1,3 @@
-/*
- * @Author: fanglijiao
- * @Date: 2021-08-04 15:45:29
- * @Last Modified by: fanglijiao
- * @Last Modified time: 2021-08-19 09:54:49
- */
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';

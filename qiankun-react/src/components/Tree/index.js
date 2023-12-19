@@ -1,9 +1,3 @@
-/*
- * @Author: liF
- * @Date: 2022-12-05 16:10:02
- * @LastEditors: liF
- * @LastEditTime: 2023-06-29 17:32:34
- */
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
@@ -67,7 +61,7 @@ export default function Tree(props) {
 
 					<div className="name">
 						<span onClick={() => toExpand(item)}>
-							{treeNodeId === -1 ? <MyDateSetIcon/> : isGroup ? (isExpand ? <FolderExpandIcon /> : <FolderIcon />) : <DataSetIcon />}
+							{treeNodeId === -1 ? <MyDateSetIcon /> : isGroup ? (isExpand ? <FolderExpandIcon /> : <FolderIcon />) : <DataSetIcon />}
 						</span>
 						<Tooltip placement="topLeft" title={item.nodeName}>
 							<div className='text'>
@@ -77,7 +71,7 @@ export default function Tree(props) {
 										<span style={{ color: '#f50' }}>{searchValue}</span>
 										{afterStr}
 									</>
-								) : nodeName }
+								) : nodeName}
 							</div>
 						</Tooltip>
 
@@ -85,7 +79,7 @@ export default function Tree(props) {
 
 					{
 						treeNodeId === -1 ? <div className="info-right-add">
-							{ more && <Dropdown
+							{more && <Dropdown
 								overlay={() => {
 									const { addFolder, addSchema } = more;
 									return (
@@ -101,7 +95,7 @@ export default function Tree(props) {
 							</Dropdown>
 							}
 						</div> : <div className="info-right">
-							{ more && !(item.createType === 2 && item.rootFlag === 2) && <Dropdown
+							{more && !(item.createType === 2 && item.rootFlag === 2) && <Dropdown
 								overlay={() => {
 									const { toRename, toMove, toDelete } = more;
 									/* 一级文件夹：重命名、删除 ; 其他文件夹&数据集 不支持任何操作 */

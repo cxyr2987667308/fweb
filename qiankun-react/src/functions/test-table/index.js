@@ -1,11 +1,3 @@
-/*
- * @Description: 数据集 schema
- * @version:
- * @Author: 方丽娇
- * @Date: 2021-07-12 10:28:38
- * @LastEditors: liF
- * @LastEditTime: 2023-07-03 12:02:51
- */
 import React, { useState, useEffect } from 'react';
 import { cloneDeep } from 'lodash';
 import TableList from './../../components/TableList';

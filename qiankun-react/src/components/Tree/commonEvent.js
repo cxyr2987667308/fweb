@@ -1,9 +1,3 @@
-/*
- * @Author: liF
- * @Date: 2022-12-05 16:10:02
- * @LastEditors: liF
- * @LastEditTime: 2022-12-05 16:12:26
- */
 import { fetchApi } from 'utils';
 import { api } from '../../../../config';
 import { isEmpty, isFunction } from 'lodash';

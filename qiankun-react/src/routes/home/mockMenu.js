@@ -1,10 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-09-23 16:58:04
- * @LastEditTime: 2023-06-29 18:07:51
- * @LastEditors: liF
- * @Description:
- */
 const mockMenu = [{
 	name: '树列表',
 	dataType: 'list-tree'
@@ -38,6 +31,15 @@ const mockMenu = [{
 }, {
 	name: '测试unity3d',
 	dataType: 'test-unity'
+}, {
+	name: '滤色模式的特性',
+	dataType: 'color-filter'
+}, {
+	name: '图片或文字滤色模式的特性',
+	dataType: 'color-filter-for-pic-and-text'
+}, {
+	name: '测试css滤色特效',
+	dataType: 'color-filter-test'
 }];
 
 export default mockMenu;

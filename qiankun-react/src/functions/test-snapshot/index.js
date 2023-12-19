@@ -1,11 +1,3 @@
-/*
- * @Description: 数据集 schema
- * @version:
- * @Author: 方丽娇
- * @Date: 2021-07-12 10:28:38
- * @LastEditors: liF
- * @LastEditTime: 2022-12-12 16:06:42
- */
 import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';

@@ -1,11 +1,3 @@
-/*
- * @Description: 数据集 schema
- * @version:
- * @Author: 方丽娇
- * @Date: 2021-07-12 10:28:38
- * @LastEditors: liF
- * @LastEditTime: 2022-12-24 10:58:18
- */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -35,7 +27,7 @@ export default function ColorPicker(props) {
 			return;
 		}
 		const { rgb } = color || {};
-		updateState({ color: rgb	});
+		updateState({ color: rgb });
 		onChange(`rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${rgb.a})`);
 	};
 
@@ -70,7 +62,7 @@ export default function ColorPicker(props) {
 					<div className='cover' onClick={closePicker} />
 
 					<SketchPicker color={color}
-						onChangeComplete={ handleChangeComplete }
+						onChangeComplete={handleChangeComplete}
 					/>
 				</div>
 			)}

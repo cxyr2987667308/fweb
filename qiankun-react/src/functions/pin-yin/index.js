@@ -1,11 +1,3 @@
-/*
- * @Description: 数据集 schema
- * @version:
- * @Author: 方丽娇
- * @Date: 2021-07-12 10:28:38
- * @LastEditors: liF
- * @LastEditTime: 2022-12-13 11:48:54
- */
 import React, { useState, useEffect } from 'react';
 import stringify from 'json-stable-stringify';
 import { pinyin } from 'pinyin-pro';
@@ -69,7 +61,7 @@ export default function PinYin(props) {
 					<div className='title'>需要转换的汉语</div>
 					<TextArea className='info' placeholder='请输入需要转换的汉语' rows={8} onChange={(e) => setInfoText(e.target.value)} />
 				</div>
-				
+
 				<div className='main-right'>
 					<div className='title'>转换结果</div>
 					<pre>{convertText ? stringify(convertText) : ''}</pre>

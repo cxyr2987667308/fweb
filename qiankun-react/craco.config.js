@@ -1,10 +1,3 @@
-/*
- * @Author: 方丽娇
- * @Date: 2021-11-09 09:34:20
- * @LastEditTime: 2023-01-16 18:14:53
- * @LastEditors: liF
- * @Description:
- */
 const packageJson = require('./package.json');
 const path = require('path');
 const resolve = dir => path.resolve(__dirname, dir);
