@@ -12,6 +12,7 @@ import TestUnity from './test-unity';
 import ColorFilter from './color-filter';
 import ColorFilterForPicAndText from './color-filter-for-pic-and-text';
 import ColorFilterTest from './color-filter-test';
+import TextLoading from './text-loading';
 
 export {
 	ListTree,
@@ -27,5 +28,6 @@ export {
 	TestUnity,
 	ColorFilter,
 	ColorFilterForPicAndText,
-	ColorFilterTest
+	ColorFilterTest,
+	TextLoading
 };
