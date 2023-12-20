@@ -8,3 +8,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    font-size: large;
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  body {
+    font-size: small;
+  }
+}
