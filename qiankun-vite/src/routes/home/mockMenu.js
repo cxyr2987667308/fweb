@@ -43,6 +43,9 @@ const mockMenu = [{
 }, {
 	name: '点点点loading效果',
 	dataType: 'text-loading'
+}, {
+	name: 'sheet',
+	dataType: 'test-sheet'
 }];
 
 export default mockMenu;
