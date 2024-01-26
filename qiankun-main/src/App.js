@@ -25,13 +25,13 @@ const App = () => {
     props: { token: 'gaiery-token-xxx' }
   }, {
     // 微应用名称，在微应用的打包配置文件种library的名称，微应用之间必须确保唯一
-    name: 'vue',
+    name: 'react-vite',
     // 微应用地址，子应用必须支持跨域 fetch
-    entry: '//localhost:8081/#/',
+    entry: '//localhost:8082/#/',
     // 微应用挂载的容器节点
     container: '#appContainer',
     // 微应用的激活规则，访问到react的时候跳转子应用
-    activeRule: '#/react',
+    activeRule: '#/react-vite',
     // 主应用需要传递给微应用的数据
     props: { token: 'gaiery-token-xxx' }
   }]
@@ -81,7 +81,7 @@ const App = () => {
         <div>
           <div className='app-menu'>
             <Link to='/react'>react</Link>
-            <Link to='/vue'>vue</Link>
+            <Link to='/react-vite'>react-vite</Link>
           </div>
           <div id="appContainer"></div>
         </div>
