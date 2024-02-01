@@ -42,8 +42,9 @@ const App = () => {
       // 微应用加载前的生命周期钩子，Promise
       beforeLoad: [
         app => {
-          console.log('beforeLoad');
           console.log(app);
+          console.log('beforeLoad');
+
         }
       ],
       // 微应用装载前的生命周期钩子，Promise

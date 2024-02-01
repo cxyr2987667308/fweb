@@ -2,8 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import MarkedPreview from 'vite-plugin-doc-preview';
 import path from 'path';
-import packageJson from './package.json';
-import { proxy as targetPath } from './.start.json';
+// import packageJson from './package.json';
+// import { proxy as targetPath } from './.start.json';
+
+const packageJson = require('./package.json');
+const startJson = require('./.start.json');
+const targetPath = startJson.proxy;
 
 const resolve = dir => path.resolve(__dirname, dir);
 console.log('targetPath', targetPath);
@@ -19,6 +23,15 @@ export default defineConfig({
     }),
     MarkedPreview({ mode: 'react' })
   ],
+  build: {
+    target: 'modules',
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    brotliSize: false,
+    minify: 'esbuild',
+    // chunkSizeWE
+  },
   resolve: {
     alias: {
       utils: resolve('src/utils'),
