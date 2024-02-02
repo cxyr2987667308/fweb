@@ -22,11 +22,7 @@ renderWithQiankun({
   },
   unmount(props) {
     console.log('unmount----');
-    const { container } = props;
-    const mountRoot = container?.querySelector('#appViteRoot');
-    ReactDOM.unmountComponentAtNode(
-      mountRoot || document.querySelector('#appViteRoot'),
-    );
+    root.unmount();
   }
 })
 // 将render方法用函数定义，供后续主应用与独立运行调用
