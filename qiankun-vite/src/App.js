@@ -1,13 +1,13 @@
 import React, { lazy } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
-// import packageJson from './../package.json';
+import pkg from './../package.json';
 import './App.less';
-const packageJson = require('./../package.json');
+// const pkg = require('./../package.json');
 const Home = lazy(() => import('./routes/home'));
 const Login = lazy(() => import('./routes/login'));
 
-const prefixCls = packageJson.antdConfig.prefixCls;
+const prefixCls = pkg.antdConfig.prefixCls;
 
 function App() {
   return (

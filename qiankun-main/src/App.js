@@ -6,7 +6,7 @@
  */
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Link } from 'react-router-dom';
-import { registerMicroApps, start, initGlobalState } from 'qiankun';
+import { registerMicroApps, start, initGlobalState, addGlobalUncaughtErrorHandler } from 'qiankun';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import './App.less';
@@ -43,35 +43,47 @@ const App = () => {
       beforeLoad: [
         app => {
           console.log(app);
-          console.log('beforeLoad');
+          console.log('beforeLoad111');
 
         }
       ],
       // 微应用装载前的生命周期钩子，Promise
       beforeMount: [
         app => {
-          console.log('beforeMount');
+          console.log('beforeMount111');
         }
       ],
       // 微应用装载后的生命周期钩子，Promise
       afterMount: [
         app => {
-          console.log('afterMount');
+          console.log('afterMount111');
         }
       ],
       // 微应用卸载前的生命周期钩子，Promise
       beforeUnmount: [
         app => {
-          console.log('beforeUnmount');
+          console.log('beforeUnmount11');
         }
       ],
       // 微应用卸载后的生命周期钩子，Promise
       afterUnmount: [
         app => {
-          console.log('afterUnmount');
+          console.log('afterUnmount11');
         }
       ]
     });
+
+    addGlobalUncaughtErrorHandler(err => {
+      const { message } = err
+      console.error('err ----', err);
+      console.error('message ----', message);
+
+      // 加载失败时提示
+      if (message && message.includes('died in status LOADING_SOURCE_CODE')) {
+        console.error('微应用加载失败，请检查应用是否可运行')
+      }
+    });
+
     // 开启
     start();
   }, [])

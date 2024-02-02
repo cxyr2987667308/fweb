@@ -1,36 +1,31 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import MarkedPreview from 'vite-plugin-doc-preview';
+import qiankun from 'vite-plugin-qiankun';
 import path from 'path';
-// import packageJson from './package.json';
-// import { proxy as targetPath } from './.start.json';
-
-const packageJson = require('./package.json');
-const startJson = require('./.start.json');
-const targetPath = startJson.proxy;
+import pkg from './package.json';
+import { proxy as targetPath } from './.start.json';
 
 const resolve = dir => path.resolve(__dirname, dir);
-console.log('targetPath', targetPath);
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
   plugins: [
-    react({
-      babel: {
-        plugins: ['@babel/plugin-transform-react-jsx'],
-      },
+    // react({
+    //   babel: {
+    //     plugins: ['@babel/plugin-transform-react-jsx'],
+    //   },
+    // }),
+    qiankun(pkg.name, {
+      useDevMode: true
     }),
-    MarkedPreview({ mode: 'react' })
+    MarkedPreview({ mode: 'react' }),
   ],
   build: {
     target: 'modules',
     outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
-    brotliSize: false,
     minify: 'esbuild',
-    // chunkSizeWE
   },
   resolve: {
     alias: {
@@ -43,7 +38,7 @@ export default defineConfig({
       less: {
         math: "always",
         modifyVars: {
-          'ant-prefix': packageJson.antdConfig.prefixCls
+          'ant-prefix': pkg.antdConfig.prefixCls
         },
         globalVars: {
           '@primary-color': '#07A6F0',
@@ -63,6 +58,7 @@ export default defineConfig({
   server: {
     // host: 'localhost',
     host: true,
+    origin: 'localhost:8082',
     port: 8082,
     open: true,
     strictPort: false,
