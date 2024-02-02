@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper';
 import './public-path';
-import pkg from './../package.json';
+// import pkg from './../package.json';
 import App from './App';
 
 let root;
