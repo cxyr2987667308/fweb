@@ -1,10 +1,8 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom";
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper';
 import './public-path';
 import App from './App';
-
-let root;
 
 // if (process.env.REACT_APP_MOCK === 'true') {
 //   require('./mock');
@@ -20,18 +18,29 @@ renderWithQiankun({
   },
   unmount(props) {
     console.log('unmount----');
-    root.unmount();
-  }
+    // root.unmount();
+    const { container } = props;
+    const mountRoot = container?.querySelector("#root");
+    ReactDOM.unmountComponentAtNode(
+      mountRoot || document.querySelector("#root")
+    );
+  },
+  update(props) {
+    console.log("viteapp update");
+    console.log(props)
+  },
 })
 // 将render方法用函数定义，供后续主应用与独立运行调用
 function render(props) {
-  const { container } = props; console.log('container---', container);
-  const dom = container ? container.querySelector('#appViteRoot') : document.getElementById('appViteRoot');
-  root = createRoot(dom);
-  root.render(
-    // <div>微服务</div>
-    <App />
-  )
+  const { container } = props;
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    container
+      ? container.querySelector("#root")
+      : document.getElementById("root")
+  );
 }
 
 // 判断是否在qiankun环境下，非qiankun环境下独立运行

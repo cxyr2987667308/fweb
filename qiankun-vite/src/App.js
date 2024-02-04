@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper';
 import { ConfigProvider } from 'antd';
@@ -13,13 +13,13 @@ function App() {
   return (
     <ConfigProvider prefixCls={prefixCls}>
       <Router basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/' + pkg.name : '/'}>
-        <div>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/login" exact={true} element={<Login />} />
             <Route path="/home/*" element={<Home />} />
             <Route path="/*" element={<Home />} />
           </Routes>
-        </div>
+        </Suspense>
       </Router>
     </ConfigProvider>
   )
