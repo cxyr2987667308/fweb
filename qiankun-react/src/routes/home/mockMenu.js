@@ -40,6 +40,12 @@ const mockMenu = [{
 }, {
 	name: '测试css滤色特效',
 	dataType: 'color-filter-test'
+}, {
+	name: '点点点loading效果',
+	dataType: 'text-loading'
+}, {
+	name: 'sheet',
+	dataType: 'test-sheet'
 }];
 
 export default mockMenu;
