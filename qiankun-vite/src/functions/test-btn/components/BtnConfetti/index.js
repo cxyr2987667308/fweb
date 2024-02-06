@@ -9,7 +9,7 @@ export default function BtnConfetti(props) {
 	const backHeight = height * (20 / 7);
 
 	return (
-		<>
+		<div className={prefixCls}>
 			<svg width="0" height="0">
 				<filter id="filter">
 					<feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="6" />
@@ -21,7 +21,7 @@ export default function BtnConfetti(props) {
 				<div className="back" style={{ ...backStyle, width: backWidth, height: backHeight }} />
 				<span>{btnText}</span>
 			</div>
-		</>
+		</div>
 	);
 }
 
