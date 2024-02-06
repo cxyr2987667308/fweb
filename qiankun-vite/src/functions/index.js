@@ -16,20 +16,5 @@ import TextLoading from './text-loading';
 import TestSheet from './test-sheet';
 
 export {
-	ListTree,
-	TestSnapshot,
-	PinYin,
-	ColorSelect,
-	ApiEditor,
-	IframeMessage,
-	PromiseDemo,
-	MockInfo,
-	TableJoin,
-	TestTable,
-	TestUnity,
-	ColorFilter,
-	ColorFilterForPicAndText,
-	ColorFilterTest,
 	TextLoading,
-	TestSheet,
 };
