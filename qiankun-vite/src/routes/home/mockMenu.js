@@ -1,6 +1,6 @@
 const mockMenu = [{
-	name: '点点点loading效果',
-	dataType: 'text-loading'
+	name: '动态按钮',
+	dataType: 'test-btn'
 }];
 
 export default mockMenu;
