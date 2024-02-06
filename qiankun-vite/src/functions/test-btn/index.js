@@ -8,6 +8,7 @@ export default function TestBtn() {
 	return (
 		<div>
 			<BtnConfetti />
+			<BtnConfetti style={{ backgroundColor: 'red' }} backStyle={{ backgroundColor: 'blue' }} />
 		</div>
 	);
 }
